@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { configureStore } from '@reduxjs/toolkit'
 import logger from 'redux-logger'
-import { registerReducer } from "../../s-2-fatures/f-1-auth/a-1-register/r-2-bll/registerReducer";
+import  {registerReducer}  from "../../s-2-fatures/f-1-auth/a-1-register/r-2-bll/registerReducer";
 
 
 
