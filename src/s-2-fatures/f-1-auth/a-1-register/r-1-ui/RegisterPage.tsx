@@ -1,10 +1,20 @@
 
 import React from "react";
-import yup from 'yup';
+import * as yup from 'yup';
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Form, FormikProvider, useFormik } from 'formik';
-import { Button, TextField} from '@mui/material';
+import Button from '@mui/material/Button';
+
+import IconButton from '@mui/material/IconButton';
+import Input from '@mui/material/Input';
+import InputAdornment from '@mui/material/InputAdornment';
+import InputLabel from '@mui/material/InputLabel';
+import TextField from '@mui/material/TextField';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import FormControl from '@mui/material/FormControl';
+
 
 //валидация панели регистрации
 const validationSchema = yup.object({
@@ -32,9 +42,15 @@ const validationSchema = yup.object({
                 'Both password need to be the same'
             )
         })
-        .required('Confirm Password Required')
+        .required('Confirm Password Required'),       
 });
 
+type State = {
+        email: string;
+        password: string;
+        confirmPassword: string;
+        showPassword: boolean;
+}
 
 export const Registration = React.memo(()=>{
     const dispatch = useDispatch()
@@ -43,17 +59,45 @@ export const Registration = React.memo(()=>{
         initialValues:{
             email:'',
             password:'',
-            confirmPassword:''
+            confirmPassword:'',
+            showPassword: false
         },
         validationSchema: validationSchema,
         onSubmit:(value) => {
             // dispatch(signUp(value.email, value.password, value.confirmPassword))
         }
-    }) 
+    })
+
+    const [values, setValues] = React.useState < State > ({
+        email: '',
+        password: '',
+        confirmPassword: '',
+        showPassword: false
+    });
+
+    const handleChange =
+        (prop: keyof State) => (event: React.ChangeEvent < HTMLInputElement > ) => {
+            setValues({
+                ...values,
+                [prop]: event.target.value
+            });
+        };
+
+    const handleClickShowPassword = () => {
+        setValues({
+            ...values,
+            showPassword: !values.showPassword,
+        });
+    };
+
+    const handleMouseDownPassword = (event: React.MouseEvent < HTMLButtonElement > ) => {
+        event.preventDefault();
+    };
+     
     return (
         <>
             <FormikProvider value={formik}>
-                <Form onSubmit={formik.handleSubmit} className={s.block_sing}>
+                <Form onSubmit={formik.handleSubmit}>
 
                     <h1>Sign Up</h1>
 
@@ -70,7 +114,24 @@ export const Registration = React.memo(()=>{
                         type="password" value={formik.values.confirmPassword} onChange={formik.handleChange}
                         error={formik.touched.confirmPassword && Boolean(formik.errors.confirmPassword)}
                         helperText={formik.touched.confirmPassword && formik.errors.confirmPassword} />
-
+                    <FormControl sx={{ m: 1, width: '25ch' }} variant="standard">
+                        <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
+                        <Input 
+                            id="standard-adornment-password" 
+                            type={values.showPassword ? 'text' : 'password' }
+                            value={formik.values.password} 
+                            onChange={handleChange('password')} 
+                            endAdornment={ <InputAdornment position="end">
+                            <IconButton 
+                                aria-label="toggle password visibility" 
+                                onClick={handleClickShowPassword}
+                                onMouseDown={handleMouseDownPassword}>
+                                {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                            </IconButton>
+                            </InputAdornment>
+                            }
+                        />
+                    </FormControl>
                     <div>
                         <Button variant="outlined" type="reset">
                             Cancel
