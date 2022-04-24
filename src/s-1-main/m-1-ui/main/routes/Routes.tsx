@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { pages } from "./Pages";
+import { pages, PagesType } from "./Pages";
 
-const RoutesPagesList = pages.map(page=>{
+const RoutesPagesList = pages.map((page:PagesType)=>{
     return (
         <Route key={'route-' + page._id}
             path={page.path || ''}
@@ -12,9 +12,9 @@ const RoutesPagesList = pages.map(page=>{
 })
 
 export const RouteFunc = () => {
-    return (
-        <Routes>
-            {RoutesPagesList}
+    return ( 
+        <Routes> 
+            {RoutesPagesList} 
         </Routes>
     )
 }

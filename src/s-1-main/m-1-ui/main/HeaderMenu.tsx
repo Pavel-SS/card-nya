@@ -7,7 +7,7 @@ import { pages } from "./routes/Pages";
 
 
 // навигация по ссылкам
-const NavLinks: React.FC<NavLinkProps> = React.memo(({...props})=>{
+const NavLinkPage: React.FC<NavLinkProps> = React.memo(({...props})=>{
     return <NavLink {...props}/>
 }) 
 
@@ -23,14 +23,14 @@ export const HeaderMenu = () => {
   };
   //  функция добавления ссылок в панель меню
   const NavLinkPages = pages.map(page =>
-    <MenuItem onClick={handleClose}>
-      <NavLinks key={'navLink-' + page._id} to={(page.path || '/404' )}>
+    <MenuItem key={'menuItem-' + page._id}  onClick={handleClose}>
+      <NavLink key={'navLink-' + page._id} to={(page.path || '/404' )}>
         {page.title}
-      </NavLinks>
+      </NavLink>
     </MenuItem>
   )
   return (
-    <div>
+    <nav>
       <Button
         id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}
@@ -51,6 +51,6 @@ export const HeaderMenu = () => {
       >
         {NavLinkPages}
       </Menu>
-    </div>
+    </nav>
   );
 }
