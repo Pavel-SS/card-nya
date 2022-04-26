@@ -1,0 +1,55 @@
+.auth{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    height: 450px;
+    background-color: #7ea5a32a;
+    border-radius: 7px;
+    backdrop-filter: blur(10px);
+    &_small{
+        height: 380px;
+    }
+
+    &__btn{
+        display: flex;
+        width: 80%;
+        justify-content: space-around;
+        margin: 50px 0 10px 0;
+        
+        button{
+            width: 30%;
+            border-radius: 16px;
+            &:nth-child(2n){
+                width: 50%;
+            }
+            &.btn_lg{
+                width: 80%;
+            }
+        }
+    }
+    &__link{
+        color:#1976d2;
+        &:hover{
+            color:#1565c0;
+        }
+        &_forgot{
+            margin-bottom: 10px;
+            color:#5d6060;
+            &:hover{
+                color:#1565c0;
+                text-shadow: none;
+            }
+        }
+    }
+    &__p{
+        max-width: 75%;
+        font-size: 13px;
+        color:#5d6060;
+        text-align:left;
+    }
+    &__p:nth-of-type(2n){
+        margin-bottom: 40px;
+     }
+}
