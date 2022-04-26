@@ -16,7 +16,8 @@ import FormControl from '@mui/material/FormControl';
 import FormHelperText  from "@mui/material/FormHelperText";
 import Link from "@mui/material/Link";
 
-import s from '../../a-4-style/authentication.module.scss'
+import s from '../../a-8-style/authentication.module.scss'
+import { PATH } from "../../../../s-1-main/m-1-ui/main/routes/Pages";
 
 
 
@@ -98,7 +99,7 @@ export const Login = React.memo(() => {
                             formik.touched.password && formik.errors.password}
                         </FormHelperText>
                     </FormControl>
-                    <Link href="#" underline="hover">
+                    <Link className={s.auth__link_forgot} href={PATH.FORGOT} underline="none" sx={{width:"40ch", fontSize:"14px"}} align="right">
                          Forgot Password 
                     </Link>
                     <div className={s.auth__btn}>
@@ -106,6 +107,12 @@ export const Login = React.memo(() => {
                             Login
                         </Button>
                     </div>
+                    <p className={s.auth__p}>
+                        Don’t have an account?
+                    </p>
+                    <Link className={s.auth__link} href={PATH.LOGIN} underline="none" sx={{fontWeight:"800"}} variant="h6">
+                        Sign Up
+                    </Link>
                 </Form>
             </FormikProvider>
     )
