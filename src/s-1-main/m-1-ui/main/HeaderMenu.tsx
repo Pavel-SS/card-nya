@@ -24,9 +24,9 @@ export const HeaderMenu = () => {
   //  функция добавления ссылок в панель меню
   const NavLinkPages = pages.map(page =>
     <MenuItem key={'menuItem-' + page._id}  onClick={handleClose}>
-      <NavLink key={'navLink-' + page._id} to={(page.path || '/404' )}>
+      <NavLinkPage key={'navLink-' + page._id} to={(page.path || '/404' )}>
         {page.title}
-      </NavLink>
+      </NavLinkPage>
     </MenuItem>
   )
   return (
