@@ -19,7 +19,7 @@ import FormHelperText  from "@mui/material/FormHelperText";
 import { signUpThunk } from "../r-2-bll/registerThunk";
 
 import s from '../../a-8-style/authentication.module.scss'
-import { PATH } from "../../../../s-1-main/m-1-ui/main/routes/Pages";
+import { PATH } from "../../../../s-1-main/m-1-ui/main/routes/path";
 
 
 //валидация панели регистрации

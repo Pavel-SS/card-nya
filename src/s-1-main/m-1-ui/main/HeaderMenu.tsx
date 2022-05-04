@@ -1,10 +1,11 @@
 import React from "react";
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+// import MenuItem from '@mui/material/MenuItem';
 import { NavLink, NavLinkProps } from "react-router-dom";
-import { pages } from "./routes/Pages";
+import { PATH } from "./routes/path";
 
+import s from "./headerMenu.module.scss"
 
 // навигация по ссылкам
 const NavLinkPage: React.FC<NavLinkProps> = React.memo(({...props})=>{
@@ -21,14 +22,7 @@ export const HeaderMenu = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  //  функция добавления ссылок в панель меню
-  const NavLinkPages = pages.map(page =>
-    <MenuItem key={'menuItem-' + page._id}  onClick={handleClose}>
-      <NavLinkPage key={'navLink-' + page._id} to={(page.path || '/404' )}>
-        {page.title}
-      </NavLinkPage>
-    </MenuItem>
-  )
+
   return (
     <nav>
       <Button
@@ -41,6 +35,7 @@ export const HeaderMenu = () => {
         Menu
       </Button>
       <Menu
+        className={s.menu}
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
@@ -49,8 +44,11 @@ export const HeaderMenu = () => {
           'aria-labelledby': 'basic-button',
         }}
       >
-        {NavLinkPages}
+        <NavLink to={PATH.LOGIN} className={({isActive}) => isActive ? s.active:s.inactive}>Login</NavLink>
+        <NavLink to={PATH.REGISTER} className={({isActive}) => isActive ? s.active: s.inactive}>Registration</NavLink>
+        <NavLink to={PATH.FORGOT} className={({isActive}) => isActive ? s.active: s.inactive}> Forgot Password</NavLink>
       </Menu>
+
     </nav>
   );
 }

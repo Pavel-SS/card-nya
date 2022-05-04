@@ -17,7 +17,7 @@ import FormHelperText  from "@mui/material/FormHelperText";
 import Link from "@mui/material/Link";
 
 import s from '../../a-8-style/authentication.module.scss'
-import { PATH } from "../../../../s-1-main/m-1-ui/main/routes/Pages";
+import { PATH } from "../../../../s-1-main/m-1-ui/main/routes/path";
 import { Typography } from "@mui/material";
 
 const validationSchema = yup.object({
