@@ -1,13 +1,16 @@
+@import "/src/s-1-main/App.scss";
 .menu {
     div{
         top: 0 !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
         box-shadow: none;
+        
         ul{
             display: flex;
             justify-content: center;
             gap: 20px;
+            background: var(--light-grey);
         }
     }
 }
