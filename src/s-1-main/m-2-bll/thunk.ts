@@ -1,8 +1,8 @@
-import { AppRootSateType } from './store';
+import { AppRootStateType } from './store';
 
 export type ReturnVoid = void;
 export type ExtraArgumentNya = {};
-export type GetAppStoreType = () => AppRootSateType;
+export type GetAppStoreType = () => AppRootStateType;
 
 export const tryCatch = async (
     log: () => void,
