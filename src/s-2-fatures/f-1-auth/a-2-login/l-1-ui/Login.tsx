@@ -1,119 +1,54 @@
-import React from "react";
-import * as yup from 'yup';
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-
-import { Form, FormikProvider, useFormik } from 'formik';
-
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import Input from '@mui/material/Input';
-import InputAdornment from '@mui/material/InputAdornment';
-import InputLabel from '@mui/material/InputLabel';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import FormControl from '@mui/material/FormControl';
-import FormHelperText  from "@mui/material/FormHelperText";
-import Link from "@mui/material/Link";
-
-import s from '../../a-8-style/authentication.module.scss'
-import { PATH } from "../../../../s-1-main/m-1-ui/main/routes/path";
+import { useCallback, useEffect, useState } from "react"
+import { useDispatch } from "react-redux"
+import { Link, Navigate } from "react-router-dom"
+import { Button } from "../../../../s-0-common/c-1-ui/Buttons/Button"
+import { Checkbox } from "../../../../s-0-common/c-1-ui/Checkbox/Checkbox"
+import { InputText } from "../../../../s-0-common/c-1-ui/InputText/InputText"
+import { PATH } from "../../../../s-1-main/m-1-ui/main/routes/path"
+import { selectLoginError, selectLoginIsLoading, selectLoginLogged } from "../../../../s-1-main/m-2-bll/selectors"
+import { useAppSelector } from "../../../../s-1-main/m-2-bll/store"
+import { loginActions } from "../l-2-bll/loginActions"
+import { loginThunk } from "../l-2-bll/loginThunk"
 
 
+export const Login = () => {
+    const dispatch = useDispatch();
 
-const validationSchema = yup.object({
-    email: yup
-        .string()
-        .trim()
-        .email('Enter a valid email')
-        .required('Email is required'),
-    password: yup
-        .string()
-        .trim()
-        .min(8,'Must contain 8 characters')
-        .matches( 
-            /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/,
-            "One Uppercase, One Lowercase, One Number and one special case Character"
-        )
-        .required('Password is required')    
-});
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [rememberMe, setRememberMe] = useState<boolean>(false)
 
-export const Login = React.memo(() => {
-    const dispatch = useDispatch()
-    const history = useNavigate()
-    const formik = useFormik({
-        initialValues:{
-            email:'',
-            password:'',
-        },
-        validationSchema: validationSchema,
-        onSubmit:(value) => {
-            // dispatch(signInThunk(value.email, value.password))
-        }
-    })
+    const loginLogged = useAppSelector(selectLoginLogged);
+    const loginLoading = useAppSelector(selectLoginIsLoading);
+    const loginError = useAppSelector(selectLoginError);
 
-    const [values, setValues] = React.useState<boolean> (false)
-    
-    const handleClickShowPassword = () => {setValues(!values);};
+    useEffect(()=>{
+        dispatch(loginActions.setError(''))
+    }, [dispatch])
 
-    const handleMouseDownPassword = (event: React.MouseEvent < HTMLButtonElement > ) => {
-        event.preventDefault();
-    };
+    const clickLogin = useCallback(()=>{
+        dispatch(loginThunk({email,password, rememberMe}))
+    },[dispatch, email, password, rememberMe])
 
+    if (loginLogged){
+        return <Navigate to={PATH.REGISTER}/>
+    }
     return (
-        <FormikProvider value={formik}>
-                <Form onSubmit={formik.handleSubmit} className={s.auth}>
-
-                    <h1>Sign In</h1>
-                    <FormControl sx={{ m: 1.5, width: '35ch', height: '50px' }} variant="standard">
-                        <InputLabel>Email</InputLabel>
-                        <Input 
-                            id="email" 
-                            value={formik.values.email} 
-                            onChange={formik.handleChange} 
-                            error={formik.touched.email && Boolean(formik.errors.email)} 
-                        />
-                        <FormHelperText id="email">{
-                            formik.touched.email && formik.errors.email}
-                        </FormHelperText>
-                    </FormControl>
-                    <FormControl sx={{ m: 1.5, width: '35ch', height: '50px' }} variant="standard">
-                        <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
-                        <Input 
-                            id="password" 
-                            type={values ? 'text' : 'password' }
-                            value={formik.values.password} 
-                            onChange={formik.handleChange} 
-                            error={formik.touched.password && Boolean(formik.errors.password)} 
-                            endAdornment={ 
-                                <InputAdornment position="end">
-                                <IconButton aria-label="toggle password visibility" 
-                                            onClick={handleClickShowPassword}
-                                            onMouseDown={handleMouseDownPassword}>
-                                                {values ? <VisibilityOff /> : <Visibility />}
-                                </IconButton>
-                                </InputAdornment>
-                            }
-                        />
-                        <FormHelperText id="password">{
-                            formik.touched.password && formik.errors.password}
-                        </FormHelperText>
-                    </FormControl>
-                    <Link className={s.auth__link_forgot} href={PATH.FORGOT} underline="none" sx={{width:"40ch", fontSize:"14px"}} align="right">
-                         Forgot Password 
-                    </Link>
-                    <div className={s.auth__btn}>
-                        <Button color="primary" variant="contained" type="submit">
-                            Login
-                        </Button>
-                    </div>
-                    <p className={s.auth__p}>
-                        Don’t have an account?
-                    </p>
-                    <Link className={s.auth__link} href={PATH.LOGIN} underline="none" sx={{fontWeight:"800"}} variant="h6">
-                        Sign Up
-                    </Link>
-                </Form>
-            </FormikProvider>
+        <>
+            <h2>Sign in</h2>
+            
+            <InputText value={email} onChangeText={setEmail} onEnterPress={clickLogin} placeholder="email"/>
+            <InputText value={password} onChangeText={setPassword} onEnterPress={clickLogin} placeholder="password" visibilityPassword/>
+            <Checkbox checked={rememberMe} onChecked={setRememberMe}> remember me </Checkbox>
+            <Link to='/register'>
+                Sign up</Link>
+            <div>
+                <Button>Login</Button>
+                <p>Don't have an account?</p>
+                <Link to='/register'>
+                Sign up</Link>
+            </div>
+            <div>{loginError}</div>
+        </>
     )
-})
+}

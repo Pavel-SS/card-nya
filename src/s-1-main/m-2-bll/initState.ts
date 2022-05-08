@@ -1,3 +1,19 @@
+// App
+export type InitAppStateType = {
+    status: string
+    error: string
+    loading: boolean
+}
+
+export const InitAppState: InitAppStateType = {
+    status:'',
+    error:'',
+    loading: false
+}
+
+
+
+//registration
 export type InitStateType = {
     loading: boolean;
     success: boolean;
@@ -9,3 +25,4 @@ export const InitState: InitStateType = {
     success: false,
     error: ''
 }
+
