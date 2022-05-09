@@ -1,3 +1,4 @@
+import { UserType } from '../../../f-2-profile/p-3-api/profileAPI';
 import { AxiosResponse } from 'axios';
 import { instance } from "../../../../s-1-main/m-3-dal/instace"
 
@@ -11,19 +12,7 @@ type LogoutType = {
     error?: string
 }
 
-//перенести в другую папку
-export type UserType = {
-    _id: string
-    email: string
-    name: string
-    avatar?: string
-    publicCardPacksCount: number
-    created: Date
-    updated: Date
-    isAdmin: boolean
-    verified: boolean
-    rememberMe: boolean
-}
+
 
 export const loginAPI = {
     login(login: LoginType){

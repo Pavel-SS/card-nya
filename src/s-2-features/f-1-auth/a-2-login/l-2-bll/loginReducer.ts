@@ -1,5 +1,5 @@
 import { LoginActionType } from './loginActions';
-import { InitState, InitStateType } from './../../../../s-1-main/m-2-bll/initState';
+import { InitState, InitStateType } from '../../../../s-1-main/m-2-bll/initState';
 
 export const loginReducer = (state: InitStateType = InitState, action: LoginActionType ): InitStateType => {
     switch (action.type){

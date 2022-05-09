@@ -1,6 +1,6 @@
 import { loginActions } from './loginActions';
 import { loginReducer } from './loginReducer';
-import { InitStateType } from './../../../../s-1-main/m-2-bll/initState';
+import { InitStateType } from '../../../../s-1-main/m-2-bll/initState';
 
 
 let initState: InitStateType

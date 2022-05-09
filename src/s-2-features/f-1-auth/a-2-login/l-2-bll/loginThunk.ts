@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { loginAPI, LoginType } from './../l-3-dal/loginAPI';
+import { loginAPI, LoginType } from '../l-3-dal/loginAPI';
 import { loginActions } from './loginActions';
 import { GeneralThunkType } from '../../../../s-1-main/m-2-bll/store';
 

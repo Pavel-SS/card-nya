@@ -1,7 +1,6 @@
 import { RegisterDataType } from '../r-3-dal/registerAPI';
 import { registerActions } from './RegisterActions';
 import { GeneralThunkType } from '../../../../s-1-main/m-2-bll/store';
-
 import { registrationAPI } from '../r-3-dal/registerAPI';
 import axios from 'axios';
 

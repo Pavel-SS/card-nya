@@ -31,7 +31,7 @@ export const Login = () => {
     },[dispatch, email, password, rememberMe])
 
     if (loginLogged){
-        return <Navigate to={PATH.REGISTER}/>
+        return <Navigate to={PATH.PROFILE}/>
     }
     return (
         <>
