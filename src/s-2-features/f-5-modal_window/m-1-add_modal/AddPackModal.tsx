@@ -16,23 +16,23 @@ export const AddPackModal: React.FC<ModalType> = React.memo(({onClickModalWindow
 
     const onClickAddPack = useCallback(()=>{
         dispatch(addPacks(name, privatePack))
-        onClickCleanUpState()
+        onClickCleanState()
     }, [dispatch, onClickModalWindow, name, privatePack])
 
-    const onClickCleanUpState = () => {
+    const onClickCleanState = () => {
         onClickModalWindow()
         setName('')
         setPrivatePack(false)
     }
 
     return (
-        <Modal onClickModalWindow={onClickCleanUpState} open={open}>
+        <Modal onClickModalWindow={onClickCleanState} open={open}>
             <InputText value={name} placeholder={'Enter name'}/>
             <Checkbox checked={privatePack} onChecked={setPrivatePack}>
                 Make private
             </Checkbox>
             <div>
-                <Button onClick={onClickCleanUpState}>Cancel</Button>
+                <Button onClick={onClickCleanState}>Cancel</Button>
                 <Button onClick={onClickAddPack}>Save</Button>
             </div>
         </Modal>
