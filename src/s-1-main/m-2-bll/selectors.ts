@@ -24,3 +24,6 @@ export const selectProfileInitialize = (state: AppRootStateType) => state.profil
 export  const selectProfileObtain = (state: AppRootStateType) => state.profile.obtain 
 
 //Packs
+export const selectPackUserID = (state: AppRootStateType) => state.packs.params.user_id
+export const selectPackNameSearch = (state: AppRootStateType) => state.packs.params.packName
+export const selectPackTypeSort = (state: AppRootStateType) => state.packs.packsType

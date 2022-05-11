@@ -6,5 +6,7 @@ export const enum PATH {
     FORGOT = '/forgot-password',
     SET_NEW_PASS = '/set-new-password',
     CHECKED = '/checked-email',
-    ERROR_404 = '/error-404'
+    ERROR_404 = '/error-404',
+    PACKS = '/packs',
+    CARDS = '/cards'
 }
