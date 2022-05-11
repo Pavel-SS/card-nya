@@ -1,8 +1,8 @@
 import { InferActionType } from './../m-2-bll/action';
 import { InitAppState, InitAppStateType } from './../m-2-bll/initState';
-import { appAction } from './appAction';
+import { appAction, AppActionType } from './appAction';
 
-export type  AppActionType = InferActionType<typeof appAction>;
+
 
 
 export const appReducer = ( state: InitAppStateType = InitAppState, action: AppActionType ):InitAppStateType => {

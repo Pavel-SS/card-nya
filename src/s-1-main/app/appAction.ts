@@ -1,3 +1,4 @@
+import { InferActionType } from './../m-2-bll/action';
 
 export const appAction = {
     setAppStatus:(status:string) => ({
@@ -8,8 +9,10 @@ export const appAction = {
         type: 'app/SET_ERROR',
         payload:{error}
     } as const),
-    selectAppLoading: (loading:boolean) => ({
+    setAppLoading: (loading:boolean) => ({
         type: 'app/SET_LOADING',
         payload:{loading}
     } as const)
 }
+
+export type AppActionType = InferActionType<typeof appAction>
