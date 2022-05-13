@@ -1,7 +1,9 @@
 import { LoginActionType } from './loginActions';
-import { InitState, InitStateType } from '../../../../s-1-main/m-2-bll/initState';
+import { InitLoginState, InitLoginStateType } from '../../../../s-1-main/m-2-bll/initState';
 
-export const loginReducer = (state: InitStateType = InitState, action: LoginActionType ): InitStateType => {
+
+
+export const loginReducer = (state: InitLoginStateType = InitLoginState, action: LoginActionType ): InitLoginStateType => {
     switch (action.type){
         case 'login/SET_LOADING':
         case 'login/SET_LOGGED':
