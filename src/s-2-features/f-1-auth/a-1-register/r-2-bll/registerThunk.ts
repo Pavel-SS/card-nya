@@ -6,7 +6,7 @@ import axios from 'axios';
 
 
 //thunk
-export const signUpThunk = ({email, password, confirmPassword}:RegisterDataType): GeneralThunkType => async dispatch => {
+export const registerThunk = ({email, password, confirmPassword}:RegisterDataType): GeneralThunkType => async dispatch => {
     dispatch(registerActions.setLoading(true))
     dispatch(registerActions.setError(''))
     if (password !== confirmPassword) {
@@ -14,7 +14,7 @@ export const signUpThunk = ({email, password, confirmPassword}:RegisterDataType)
         dispatch(registerActions.setLoading(false))
     }else{
         try {
-            await registrationAPI.signUp({email,password})
+            await registrationAPI.signUp({email, password})
             dispatch(registerActions.setSucccess(true))
         } catch(e) {
             if (axios.isAxiosError(e)){

@@ -42,7 +42,7 @@ export const Registration:React.FC<RegisterPropsType>= React.memo(({
                 <Button disabled={isLoading} onClick={()=>navigate('/login')}>Cancel</Button>
                 <Button disabled={isLoading} onClick={signUp}>Register</Button>
             </div>
-            <div className={s.error}>error {error}</div>
+            <div className={s.error}>{error}</div>
         </>
     )
 })

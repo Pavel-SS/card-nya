@@ -5,7 +5,7 @@ import { PATH } from "../../../../s-1-main/m-1-ui/main/routes/path";
 import { selectRegistrationError, selectRegistrationIsLoading, selectRegistrationSuccess } from "../../../../s-1-main/m-2-bll/selectors";
 import { useAppSelector } from "../../../../s-1-main/m-2-bll/store";
 import { registerActions } from "../r-2-bll/RegisterActions";
-import { signUpThunk } from "../r-2-bll/registerThunk";
+import { registerThunk } from "../r-2-bll/registerThunk";
 import { Registration } from "./Register";
 
 
@@ -22,7 +22,7 @@ export const RegistrationPage  = () => {
     const registerError = useAppSelector(selectRegistrationError);
     
     const signUp = useCallback(()=>{
-        dispatch(signUpThunk({email,password,confirmPassword}))
+        dispatch(registerThunk({email,password,confirmPassword}))
     },[dispatch,email,password,confirmPassword])
 
     useEffect(()=> {
