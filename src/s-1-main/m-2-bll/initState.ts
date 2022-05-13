@@ -18,6 +18,13 @@ export const InitState = {
     error: ''
 }
 export type InitStateType = typeof InitState
+// login
+export const InitLoginState = {
+    loading: false,
+    success: false,
+    error: ''
+}
+export type InitLoginStateType = typeof InitState
 
 // profile
 export const InitProfileState = {
