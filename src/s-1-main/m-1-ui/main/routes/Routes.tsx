@@ -17,11 +17,11 @@ export const RouteFunc = () => {
             <Route path={PATH.LOGIN} element={<Login/>}/>
             <Route path={PATH.REGISTER} element={<RegistrationPage/>}/>
             <Route path={PATH.PACKS} element={<AuthNavigate><Packs/></AuthNavigate>}/>
-            {/* <Route path={PATH.FORGOT} element={<ForgotPassword/>}/>
+            <Route path={PATH.FORGOT} element={<ForgotPassword/>}/>
             <Route path={PATH.SET_NEW_PASS}/>
             <Route />
             <Route />
-            <Route /> */}
+            <Route />
         </Routes>
     )
 }

@@ -1,5 +1,6 @@
 import { UserType } from '../../s-2-features/f-2-profile/p-3-api/profileAPI';
 import { PackParamsType, PackType } from '../../s-2-features/f-3-packs/p-3-api/packsAPI';
+import { CardType } from '../../s-2-features/f-4-cards/c-3-api/CardsAPI';
 
 
 // App
@@ -57,3 +58,32 @@ export const InitPackState = {
 
 export type InitPackStateType = typeof InitPackState
 
+//card
+export type CardsParamsType = {
+    cardAnswer: string
+    cardQuestion: string
+    cardsPack_id: string
+    min: number,
+    max: number,
+    sortCards: string
+    page: number
+    pageCount: number
+}
+
+export const InitialCardState = {
+    cards: [] as CardType[],
+    params: {
+        cardAnswer: '',
+        cardQuestion: '',
+        cardsPack_id: '',
+        min: 0,
+        max: 5,
+        sortCards: '0grade',
+        page: 1,
+        pageCount: 10,
+    } as CardsParamsType,
+    cardsTotalCount: 0,
+    packName: '',
+}
+
+export type InitialCardStateType = typeof InitialCardState
