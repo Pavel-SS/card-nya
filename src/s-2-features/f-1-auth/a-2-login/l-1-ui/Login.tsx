@@ -23,7 +23,9 @@ export const Login = () => {
     const loginError = useAppSelector(selectLoginError);
 
     useEffect(()=>{
-        dispatch(loginActions.setError(''))
+       return () => {
+           dispatch(loginActions.setError(''))
+        }
     }, [dispatch])
 
     const clickLogin = useCallback(()=>{
@@ -43,7 +45,7 @@ export const Login = () => {
             <Link to='/register'>
                 Sign up</Link>
             <div>
-                <Button>Login</Button>
+                <Button onClick={clickLogin}>Login</Button>
                 <p>Don't have an account?</p>
                 <Link to='/register'>
                 Sign up</Link>

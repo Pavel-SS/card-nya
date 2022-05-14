@@ -6,14 +6,14 @@ export type RegisterActionsType = InferActionType<typeof registerActions>
 export const registerActions = {
     setLoading: (loading: boolean) => ({
         type: 'register/SET_LOADING',
-        loading,
+        payload: { loading }
     } as const),
     setSucccess: (success: boolean) => ({
         type: 'register/SET_SUCCESS',
-        success,
+        payload: { success }
     } as const),
     setError: (error: string) => ({
         type: 'register/SET_ERROR',
-        error,
+        payload: { error}
     } as const)
 };
