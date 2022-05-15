@@ -15,7 +15,7 @@ export const DelPackModal: React.FC<DelPackModalType> = React.memo(({
     open,
     id,
     name
-})=>{
+}) => {
     const dispatch = useDispatch()
 
     const onClickDelPack = useCallback(()=>{
