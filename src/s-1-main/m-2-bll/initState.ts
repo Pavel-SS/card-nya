@@ -1,6 +1,6 @@
 import { UserType } from '../../s-2-features/f-2-profile/p-3-api/profileAPI';
 import { PackParamsType, PackType } from '../../s-2-features/f-3-packs/p-3-api/packsAPI';
-import { CardType } from '../../s-2-features/f-4-cards/c-3-api/CardsAPI';
+import { CardType } from '../../s-2-features/f-4-cards/c-3-api/cardsAPI';
 
 
 // App
@@ -87,3 +87,7 @@ export const InitialCardState = {
 }
 
 export type InitialCardStateType = typeof InitialCardState
+
+
+//
+export type SortPositionType = '0' | '1'

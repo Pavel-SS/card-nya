@@ -1,5 +1,5 @@
 import { cardsActions } from './cardsActions';
-import { cardsAPI, AddCardType, UpdateCardType} from './../c-3-api/CardsAPI';
+import { cardsAPI, AddCardType, UpdateCardType} from './../c-3-api/cardsAPI';
 import { appAction } from "../../../s-1-main/app/appAction";
 import { GeneralThunkType } from "../../../s-1-main/m-2-bll/store";
 import { networkErrorHandler } from '../../../utils/networkErrorHandler';

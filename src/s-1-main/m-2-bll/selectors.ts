@@ -29,4 +29,12 @@ export const selectPackNameSearch = (state: AppRootStateType) => state.packs.par
 export const selectPackTypeSort = (state: AppRootStateType) => state.packs.packsType
 
 //Cards
-export const selectCards = (state: AppRootStateType) => state.cards.
+export const selectCards = (state: AppRootStateType) => state.cards.cards
+export const selectCardsPackName = (state: AppRootStateType) => state.cards.packName
+export const selectCardQuestion = (state: AppRootStateType) => state.cards.params.cardQuestion
+export const selectCardAnswer = (state: AppRootStateType) => state.cards.params.cardAnswer
+export const selectCardsSort = (state: AppRootStateType) => state.cards.params.sortCards
+export const selectCardsPackID = (state: AppRootStateType) => state.cards.params.cardsPack_id
+export const selectCardsPage = (state: AppRootStateType) => state.cards.params.page
+export const selectCardsPageCount = (state: AppRootStateType) => state.cards.params.pageCount
+export const selectCardsTotalCount = (state: AppRootStateType) => state.cards.cardsTotalCount

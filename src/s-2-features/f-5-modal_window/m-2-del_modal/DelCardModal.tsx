@@ -1,34 +1,31 @@
 import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { Button } from "../../../s-0-common/c-1-ui/Buttons/Button";
-import { delPacks } from "../../f-3-packs/p-2-bll/packsThunk";
+import { delCard } from "../../f-4-cards/c-2-bll/cardsThunk";
 import { Modal, ModalType } from "../Modal";
 
-
-export type DelPackModalType = ModalType & {
+export type DelCardModalType = ModalType & {
     id: string
-    name: string
 }
 
-export const DelPackModal: React.FC<DelPackModalType> = React.memo(({
+export const DelCardModal: React.FC<DelCardModalType> = React.memo(({
     onClickModalWindow,
     open,
     id,
-    name
 }) => {
     const dispatch = useDispatch()
-
-    const onClickDelPack = useCallback(()=>{
-        dispatch(delPacks(id, name))
+    
+    const onClickDelCard = useCallback(()=>{
+        dispatch(delCard(id))
         onClickModalWindow()
-    },[dispatch, onClickModalWindow, id, name])
+    }, [dispatch, onClickModalWindow, id])
+
     return (
         <Modal onClickModalWindow={onClickModalWindow} open={open}>
-            <p>Do you really want to remove pack '{name}'?</p>
-            <p>All cards will be excluded from this course.</p>
+            <p>Do you really want to remove card?</p>
             <div>
                 <Button onClick={onClickModalWindow}>Cancel</Button>
-                <Button onClick={onClickDelPack}>Delete</Button>
+                <Button onClick={onClickDelCard}>Delete</Button>
             </div>
         </Modal>
     )
