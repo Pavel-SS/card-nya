@@ -104,4 +104,3 @@ export const cardsAPI = {
     }
 }
 
-export type CardsHeaderNameSortType = 'answer' | 'question' | 'updated' | 'grade'
