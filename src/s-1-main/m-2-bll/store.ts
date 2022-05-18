@@ -1,3 +1,5 @@
+import { LearnActionsType } from './../../s-2-features/f-3-packs/p-2-bll/learn/learnAction';
+import { learnReducer } from './../../s-2-features/f-3-packs/p-2-bll/learn/learnReducer';
 import { CardsActionTypes } from './../../s-2-features/f-4-cards/c-2-bll/cardsActions';
 import { cardsReducer } from './../../s-2-features/f-4-cards/c-2-bll/cardsReducer';
 import { PacksActionType } from './../../s-2-features/f-3-packs/p-2-bll/packsActions';
@@ -24,7 +26,8 @@ const rootReducer = combineReducers({
    register: registerReducer,
    packs: packsReducer,
    cards: cardsReducer,
-   app: appReducer
+   app: appReducer,
+   learn: learnReducer
 })
 
 
@@ -37,6 +40,7 @@ export type ActionsType =
                         RegisterActionsType | 
                         PacksActionType |
                         CardsActionTypes |
+                        LearnActionsType |
                         AppActionType;
 export type GeneralThunkType<ReturnType = void> = ThunkAction<ReturnType, AppRootStateType, ExtraArgumentNya, ActionsType>
 

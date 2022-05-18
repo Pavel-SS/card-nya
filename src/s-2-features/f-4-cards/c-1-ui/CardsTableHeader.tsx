@@ -28,12 +28,12 @@ export const CardsTableHeader = ({text,param}: CardsTableHeaderType) => {
     }
 
     return (
-        <th>
+        <td>
             <span onClick={() => changeNameSort(param)}>{text}</span>
             <div>
                 <div onClick={() => changeSortPosition('0')}>up</div>
                 <div onClick={() => changeSortPosition('1')}>down</div>
             </div>
-        </th>
+        </td>
     )
 }

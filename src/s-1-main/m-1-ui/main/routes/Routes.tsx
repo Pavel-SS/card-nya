@@ -7,6 +7,7 @@ import { ForgotPassword } from "../../../../s-2-features/f-1-auth/a-3-forgot/f-1
 import { Profile } from "../../../../s-2-features/f-2-profile/p-1-ui/Profile";
 import { AuthNavigate } from "../../../../utils/hoc/AuthVerific";
 import { Packs } from "../../../../s-2-features/f-3-packs/p-1-ui/Packs";
+import { CardsPage } from "../../../../s-2-features/f-4-cards/c-1-ui/CardsPage";
 
 
 export const RouteFunc = () => {
@@ -16,10 +17,10 @@ export const RouteFunc = () => {
             <Route path={PATH.PROFILE} element = {<Profile/>}/> 
             <Route path={PATH.LOGIN} element={<Login/>}/>
             <Route path={PATH.REGISTER} element={<RegistrationPage/>}/>
-            <Route path={PATH.PACKS} element={<AuthNavigate><Packs/></AuthNavigate>}/>
+            <Route path={PATH.PACKS} element={<Packs/>}/>
             <Route path={PATH.FORGOT} element={<ForgotPassword/>}/>
             <Route path={PATH.SET_NEW_PASS}/>
-            <Route />
+            <Route path={`${PATH.CARDS}`} element={<CardsPage/>}/>
             <Route />
             <Route />
         </Routes>

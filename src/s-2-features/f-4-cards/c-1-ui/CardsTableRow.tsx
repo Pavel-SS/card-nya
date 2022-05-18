@@ -3,10 +3,10 @@ import { CardType } from "../c-3-api/cardsAPI"
 import { Card } from "./Card"
 
 export type CardsTableRowType = {
-    card: CardType[]
+    cards: CardType[]
 }
-export const CardsTableRow: React.FC<CardsTableRowType> = React.memo(({card}) => {
+export const CardsTableRow: React.FC<CardsTableRowType> = React.memo(({cards}) => {
     return (
-        <>{card.map(item => <Card key={item._id} card={item}/>)}</>
+        <>{cards.map(item => <Card key={item._id} card={item}/>)}</>
     )
 })

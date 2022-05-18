@@ -87,7 +87,7 @@ export type RateResponseType = {
 }
 
 export const cardsAPI = {
-    getCards (params: Partial<CardsParamsType>) {
+    getCards(params: Partial<CardsParamsType>) {
         return instance.get<any, AxiosResponse<CardsResponseType>, Partial<CardsParamsType>>('cards/card', {params}).then(res => res.data)
     },
     addCards (card: AddCardType) {
