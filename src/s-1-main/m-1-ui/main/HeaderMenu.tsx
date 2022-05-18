@@ -8,9 +8,9 @@ import { PATH } from "./routes/path";
 import s from "./headerMenu.module.scss"
 
 // навигация по ссылкам
-const NavLinkPage: React.FC<NavLinkProps> = React.memo(({...props})=>{
-    return <NavLink {...props}/>
-}) 
+// const NavLinkPage: React.FC<NavLinkProps> = React.memo(({...props})=>{
+//     return <NavLink {...props}/>
+// }) 
 
 
 export const HeaderMenu = () => {
@@ -48,6 +48,8 @@ export const HeaderMenu = () => {
         <NavLink to={PATH.REGISTER} className={({isActive}) => isActive ? s.active: s.inactive}>Registration</NavLink>
         <NavLink to={PATH.FORGOT} className={({isActive}) => isActive ? s.active: s.inactive}> Forgot Password</NavLink>
         <NavLink to={PATH.PROFILE} className={({isActive}) => isActive ? s.active: s.inactive}> Profile</NavLink>
+        <NavLink to={PATH.PACKS} className={({isActive}) => isActive ? s.active: s.inactive}> Pack List</NavLink>
+        <NavLink to={PATH.CARDS} className={({isActive}) => isActive ? s.active: s.inactive}> Cards</NavLink>
       </Menu>
 
     </nav>

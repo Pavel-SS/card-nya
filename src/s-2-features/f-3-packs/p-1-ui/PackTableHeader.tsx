@@ -1,30 +1,27 @@
-
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { SortPositionType } from "../../../s-1-main/m-2-bll/initState"
-import { cardsActions } from "../c-2-bll/cardsActions"
+import { PacksSortType, SortPositionType } from "../../../s-1-main/m-2-bll/initState"
+import { packsActions } from "../p-2-bll/packsActions"
 
-type CardsHeaderNameSortType = 'answer' | 'question' | 'updated' | 'grade'
 
-type CardsTableHeaderType = {
+type PackTableHeaderPropsType = {
     text: string
-    param: CardsHeaderNameSortType
+    param: PacksSortType
 }
 
-export const CardsTableHeader = ({text,param}: CardsTableHeaderType) => {
+export const PackTableHeader = ({text, param}:PackTableHeaderPropsType) => {
     const dispatch = useDispatch()
 
     const [sortPosition, setSortPosition] = useState<SortPositionType>('0')
-    const [nameSort, setNameSort] = useState<CardsHeaderNameSortType>('updated')
+    const [nameSort, setNameSort] = useState<PacksSortType>('updated')
 
     const changeSortPosition = (pos: SortPositionType) => {
         setSortPosition(pos)
-        dispatch(cardsActions.setSortParameters(pos + nameSort))
+        dispatch(packsActions.setSortParameters(pos + nameSort))
     }
-
-    const changeNameSort = (name: CardsHeaderNameSortType) => {
+    const changeNameSort = (name: PacksSortType) => {
         setNameSort(name)
-        dispatch(cardsActions.setSortParameters(sortPosition + name))
+        dispatch(packsActions.setSortParameters(sortPosition + name))
     }
 
     return (
@@ -36,4 +33,4 @@ export const CardsTableHeader = ({text,param}: CardsTableHeaderType) => {
             </div>
         </td>
     )
-}
+} 

@@ -11,8 +11,8 @@ export type CardPropsType = {
 }
 
 export const Card: React.FC<CardPropsType> = React.memo(({card})=>{
-    const [delCard, setDelCard] =useState<boolean>(false)
-    const [editCard, setEditCard] =useState<boolean>(false)
+    const [delCard, setDelCard] = useState<boolean>(false)
+    const [editCard, setEditCard] = useState<boolean>(false)
 
     const userID = useAppSelector(selectProfileUserID)
 

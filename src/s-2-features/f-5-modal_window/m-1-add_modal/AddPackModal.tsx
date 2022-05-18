@@ -8,12 +8,11 @@ import { Modal, ModalType } from "../Modal"
 
 
 export const AddPackModal: React.FC<ModalType> = React.memo(({onClickModalWindow,open}) => {
-
-    const [name, setName] = useState<string>(''),
-        [privatePack,setPrivatePack] = useState<boolean>(false);
-    
     const dispatch = useDispatch();
-
+    
+    const [name, setName] = useState<string>(''),
+          [privatePack, setPrivatePack] = useState<boolean>(false);
+    
     const onClickAddPack = useCallback(()=>{
         dispatch(addPacks(name, privatePack))
         onClickCleanState()

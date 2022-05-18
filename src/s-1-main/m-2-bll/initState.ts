@@ -38,6 +38,7 @@ export type InitProfileStateType = typeof InitProfileState
 
 //pack
 export type GeneralOrMyPacks = 'All' | 'My'
+export type PacksSortType = 'name' | 'cardsCount' | 'updated' | 'user_name'
 
 export const InitPackState = {
     packs: [] as PackType[],
@@ -88,6 +89,11 @@ export const InitialCardState = {
 
 export type InitialCardStateType = typeof InitialCardState
 
-
+//learn
+export const learnInitialState = {
+    cards: [] as CardType[],
+    randomeCard: {} as CardType
+}
+export type LearnInitialStateType = typeof learnInitialState
 //
 export type SortPositionType = '0' | '1'

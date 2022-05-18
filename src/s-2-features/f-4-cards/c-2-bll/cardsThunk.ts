@@ -12,7 +12,7 @@ export const getCards = (): GeneralThunkType => async(dispatch,  getState) => {
         dispatch(cardsActions.setCardsCount(data.cardsTotalCount))
         dispatch(cardsActions.setCards(data.cards))
     } catch(e) {
-        networkErrorHandler(dispatch,  e as Error)
+        networkErrorHandler(dispatch, e as Error)
     } finally {
         dispatch(appAction.setAppLoading(false))
     }
