@@ -14,7 +14,11 @@ export const RouteFunc = () => {
     return ( 
         <Routes>
             <Route path="/" element = {<Navigate to={PATH.PROFILE}/>}/> 
-            <Route path={PATH.PROFILE} element = {<Profile/>}/> 
+            <Route path={PATH.PROFILE} element = {
+                <AuthNavigate>
+                    <Profile/>
+                </AuthNavigate>
+            }/> 
             <Route path={PATH.LOGIN} element={<Login/>}/>
             <Route path={PATH.REGISTER} element={<RegistrationPage/>}/>
             <Route path={PATH.PACKS} element={<Packs/>}/>
