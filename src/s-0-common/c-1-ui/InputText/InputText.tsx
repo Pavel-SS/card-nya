@@ -39,18 +39,15 @@ export const InputText: React.FC<InputTextPropsType> = React.memo(({
 
     return (
         <div className={s.container}>
-            <input 
-                type={textOrPassword ? 'text' : 'password'} 
-                onChange={onChangeCallback}
-                onKeyPress={onKeyPressCallback}
-                {...props}
-            />
-            {visibilityPassword && 
-             <div 
-                onClick={hiddenPassword} 
-                className={textOrPassword ?`${s.eye} ${s.eye_open}` : `${s.eye} ${s.eye_close}`}>
-             </div>
-            }
+            <div className={s.container__items}>
+                <input type={textOrPassword ? 'text' : 'password' } onChange={onChangeCallback}
+                    onKeyPress={onKeyPressCallback} {...props} />
+                {visibilityPassword &&
+                <div onClick={hiddenPassword} className={textOrPassword ?`${s.eye} ${s.eye_open}` : `${s.eye}
+                    ${s.eye_close}`}>
+                </div>
+                }
+            </div> 
         </div>
     )
 })
