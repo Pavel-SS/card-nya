@@ -10,6 +10,7 @@ import { useAppSelector } from "../../../../s-1-main/m-2-bll/store"
 import { loginActions } from "../l-2-bll/loginActions"
 import { loginThunk } from "../l-2-bll/loginThunk"
 
+import genl from "../../../../s-1-main/m-1-ui/gnel.module.scss"
 
 export const Login = () => {
     const dispatch = useDispatch();
@@ -36,7 +37,7 @@ export const Login = () => {
         return <Navigate to={PATH.PROFILE}/>
     }
     return (
-        <>
+        <div className ={genl.block__auth}>
             <h2>Sign in</h2>
             
             <InputText value={email} onChangeText={setEmail} onEnterPress={clickLogin} placeholder="email"/>
@@ -51,6 +52,6 @@ export const Login = () => {
                 Sign up</Link>
             </div>
             <div>{loginError}</div>
-        </>
+        </div>
     )
 }
