@@ -1,13 +1,19 @@
+@import "./style/gnel.module.scss";
+
+*{
+	font-family: 'Quicksand', sans-serif;
+	font-size: 18px;
+	color: $primary;
+}
 
 :root {
-	--light-grey: #e0e0e0;
+	--light-grey: #d7e0e0;
 	--dark-grey: #c5c5c5;
 }
 
 body {
-	margin: 0;
+	margin: 0 auto;
 	padding: 0;
-	width: 100%;
 	height: 100vh;
 	display: flex;
 	justify-content: center;
@@ -18,7 +24,16 @@ body * {
 	box-sizing: border-box;
 	outline: none;
 }
-
+.App{
+	display: flex;
+	justify-content:center;
+	flex-direction: column;
+	align-items:center;
+	background-color:transparent;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
 .error {
     color: #e82323;
     font-size: 16px;

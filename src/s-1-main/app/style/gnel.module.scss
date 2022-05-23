@@ -1,0 +1,99 @@
+$primary: #110dc5;
+$secondary: #100dc548;
+$primari-light: #aaa9f7;
+
+.block__auth {
+    min-height: 320px;
+    width: 400px;
+    background: inherit;
+    border-radius: 15px;
+    border: 1px solid rgba(43, 43, 43, 0.568);
+    position: relative;
+    overflow: hidden;
+    &::before {
+        position: absolute;
+        content: '';
+        background: inherit;
+        width: 450px;
+        left: -25px;
+        right: 0;
+        top: -25px;
+        bottom: 0;
+        box-shadow: inset 0 0 0 3000px rgba(150, 150, 150, 0.192);
+        filter: blur(10px);
+        border-radius: 15px;
+    }
+    &_box{
+        position: relative;
+        left:50%;
+        transform: translateX(-50%);
+        width: 350px;
+        min-height: 350px;
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content: space-around;
+        .link{
+            text-align: center;
+            width: 80%;
+            &__forgot{
+                text-align: end;
+            }
+        }        
+    }
+
+}
+
+.link{
+    text-decoration: none;
+    color:$secondary;
+    &:hover{
+        color:$primary;
+    }
+}
+
+.item{
+    &_title{
+        color:#110DC5;
+    }
+    &_txt{
+    color:rgb(100, 96, 96);
+    margin: 0 auto;
+    }
+}
+.btns{
+    width: 350px;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+}
+.btn{
+    color: $primari-light;
+    background-color: $primary;
+    border:solid 1px $primary; 
+    border-radius: 10px;
+    padding: 5px 15px;
+    width: 120px;
+    cursor: pointer;
+    &_sml{
+        width:80px ;
+    }
+    &_bg{
+        width: 160px;
+    }
+    &:hover{
+        color:$primary;
+        background-color:$secondary;
+        border-color:$secondary;
+    }
+    &:active{
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+}
+
+.error {
+    color: #e82323;
+    font-size: 16px;
+    margin: 10px 0 25px 0;
+    height: 10px;
+}
