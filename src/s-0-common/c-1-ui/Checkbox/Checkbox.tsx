@@ -1,7 +1,7 @@
 import React, { ChangeEvent, DetailedHTMLProps, InputHTMLAttributes } from "react"
 
 import s from "./checkbox.module.scss" 
-
+import text from "../../../s-1-main/app/style/text.module.scss"
 type DefaultCheckboxPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 
 type CheckboxPropsType = DefaultCheckboxPropsType & {
@@ -26,9 +26,11 @@ export const Checkbox: React.FC<CheckboxPropsType> = React.memo((
             <input className={s.checkbox}
                 type={'checkbox'}
                 onChange={onChangeCallback}
+                id='checkbox'
                 {...props} 
             />
-            <span className={s.checkbox_txt}>{children && children}</span>
+            <label htmlFor='checkbox'></label>
+            <span className={text.fs14_400}>{children && children}</span>
         </label>
     )
 })

@@ -6,7 +6,7 @@ type ButtonPropsType = DefaultButtonPropsType;
 
 export const Button: React.FC<ButtonPropsType> = React.memo(({...props})=>{
     return (
-        <button className="" {...props}>
+        <button {...props}>
         </button>
     )
 

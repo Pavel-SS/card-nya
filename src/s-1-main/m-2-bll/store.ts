@@ -1,3 +1,5 @@
+import { forgotPasswordReducer } from './../../s-2-features/f-1-auth/a-3-forgot/f-2-bll/forgotPasswordReducer';
+import { ForgotPasswordActionType } from './../../s-2-features/f-1-auth/a-3-forgot/f-2-bll/forgotPasswordAction';
 import { LearnActionsType } from './../../s-2-features/f-3-packs/p-2-bll/learn/learnAction';
 import { learnReducer } from './../../s-2-features/f-3-packs/p-2-bll/learn/learnReducer';
 import { CardsActionTypes } from './../../s-2-features/f-4-cards/c-2-bll/cardsActions';
@@ -24,6 +26,7 @@ const rootReducer = combineReducers({
    profile: profileReducer,
    login: loginReducer,
    register: registerReducer,
+   forgotPass: forgotPasswordReducer,
    packs: packsReducer,
    cards: cardsReducer,
    app: appReducer,
@@ -38,6 +41,7 @@ export type ActionsType =
                         ProfileActionsType |
                         LoginActionType | 
                         RegisterActionsType | 
+                        ForgotPasswordActionType |
                         PacksActionType |
                         CardsActionTypes |
                         LearnActionsType |

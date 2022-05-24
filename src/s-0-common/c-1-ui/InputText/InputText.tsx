@@ -1,8 +1,8 @@
 import React, { ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, KeyboardEvent, useState } from "react";
 
 //импортируем стили
-import s from './inputText.module.scss'
-
+import s from "./inputText.module.scss"
+import text from "../../../s-1-main/app/style/text.module.scss"
 
 //типизация стандартного input
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
@@ -39,8 +39,8 @@ export const InputText: React.FC<InputTextPropsType> = React.memo(({
 
     return (
         <div className={s.container}>
-            <div className={s.container__items}>
-                <input type={textOrPassword ? 'text' : 'password' } onChange={onChangeCallback}
+            <div className={s.container_items}>
+                <input className={text.fs18_400} type={textOrPassword ? 'text' : 'password' } onChange={onChangeCallback}
                     onKeyPress={onKeyPressCallback} {...props} />
                 {visibilityPassword &&
                 <div onClick={hiddenPassword} className={textOrPassword ?`${s.eye} ${s.eye_open}` : `${s.eye}
