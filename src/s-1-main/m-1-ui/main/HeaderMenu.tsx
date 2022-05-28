@@ -47,6 +47,7 @@ export const HeaderMenu = () => {
         <NavLink to={PATH.LOGIN} className={({isActive}) => isActive ? s.active:s.inactive}>Login</NavLink>
         <NavLink to={PATH.REGISTER} className={({isActive}) => isActive ? s.active: s.inactive}>Registration</NavLink>
         <NavLink to={PATH.FORGOT} className={({isActive}) => isActive ? s.active: s.inactive}> Forgot Password</NavLink>
+        <NavLink to={PATH.SET_NEW_PASS} className={({isActive}) => isActive ? s.active: s.inactive}> Confirm new password</NavLink>
         <NavLink to={PATH.PROFILE} className={({isActive}) => isActive ? s.active: s.inactive}> Profile</NavLink>
         <NavLink to={PATH.PACKS} className={({isActive}) => isActive ? s.active: s.inactive}> Pack List</NavLink>
         <NavLink to={PATH.CARDS} className={({isActive}) => isActive ? s.active: s.inactive}> Cards</NavLink>

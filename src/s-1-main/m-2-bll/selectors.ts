@@ -1,5 +1,4 @@
 
-
 import { AppRootStateType } from "./store"
 
 export const selectLoginLogged = (state: AppRootStateType) => state.login.success
@@ -28,6 +27,11 @@ export  const selectProfileObtain = (state: AppRootStateType) => state.profile.o
 export const selectForgotPassSuccess = (state: AppRootStateType) => state.forgotPass.success
 export const selectForgotPassError = (state: AppRootStateType) => state.forgotPass.error
 export const selectForgotPassIsLoading = (state: AppRootStateType) => state.forgotPass.loading
+
+// confirm new password
+export const selectNewPasswordSuccess = (state: AppRootStateType) => state.changePassword.success
+export const selectNewPasswordError = (state: AppRootStateType) => state.changePassword.error
+export const selectNewPasswordIsLoading = (state: AppRootStateType) => state.changePassword.loading
 
 //packs
 export const selectPacks = (state: AppRootStateType) => state.packs.packs
