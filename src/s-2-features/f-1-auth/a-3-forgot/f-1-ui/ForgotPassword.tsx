@@ -6,7 +6,7 @@ import { InputText } from "../../../../s-0-common/c-1-ui/InputText/InputText"
 import gnel from "../../../../s-1-main/app/style/gnel.module.scss"
 import text from "../../../../s-1-main/app/style/text.module.scss"
 
-type RecoveryPropsType = {
+type ForgotPasswordPropsType = {
     email: string
     setEmail: (value: string) => void
     toSendInstructions: () => void
@@ -15,7 +15,7 @@ type RecoveryPropsType = {
     check: boolean
 }
 
-export const ForgotPassword:React.FC<RecoveryPropsType> = React.memo(({
+export const ForgotPassword:React.FC<ForgotPasswordPropsType> = React.memo(({
                                   setEmail,
                                   email,
                                   toSendInstructions,
