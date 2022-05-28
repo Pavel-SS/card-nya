@@ -10,7 +10,8 @@ import { useAppSelector } from "../../../../s-1-main/m-2-bll/store"
 import { loginActions } from "../l-2-bll/loginActions"
 import { loginThunk } from "../l-2-bll/loginThunk"
 
-import genl from "../../../../s-1-main/m-1-ui/gnel.module.scss"
+import gnel from "../../../../s-1-main/app/style/gnel.module.scss"
+import text from "../../../../s-1-main/app/style/text.module.scss"
 
 export const Login = () => {
     const dispatch = useDispatch();
@@ -37,21 +38,21 @@ export const Login = () => {
         return <Navigate to={PATH.PROFILE}/>
     }
     return (
-        <div className ={genl.block__auth}>
-            <h2>Sign in</h2>
-            
-            <InputText value={email} onChangeText={setEmail} onEnterPress={clickLogin} placeholder="email"/>
-            <InputText value={password} onChangeText={setPassword} onEnterPress={clickLogin} placeholder="password" visibilityPassword/>
-            <Checkbox checked={rememberMe} onChecked={setRememberMe}> remember me </Checkbox>
-            <Link to='/register'>
+        <div className={gnel.block__auth}>
+            <div className={gnel.block__auth_box}>
+                <h2 className={`${gnel.item_title} ${text.fs27_700}`}>Sign In</h2>
+                <InputText value={email} onChangeText={setEmail} onEnterPress={clickLogin} placeholder="email" />
+                <InputText value={password} onChangeText={setPassword} onEnterPress={clickLogin} placeholder="password"
+                    visibilityPassword />
+                <Checkbox checked={rememberMe} onChecked={setRememberMe}> remember me </Checkbox>
+                <Link to='/register' className={`${gnel.link} ${gnel.link__forgot} ${text.fs14_400}`}>
+                Forgot password</Link>
+                <Button className={`${gnel.btn} ${gnel.btn_sml} ${text.fs14_400}`} onClick={clickLogin}>Login</Button>
+                <p className={`${gnel.item_txt} ${text.fs12_700}`}>Don't have an account?</p>
+                <Link to='/register' className={`${gnel.link} ${text.fs14_400}`}>
                 Sign up</Link>
-            <div>
-                <Button onClick={clickLogin}>Login</Button>
-                <p>Don't have an account?</p>
-                <Link to='/register'>
-                Sign up</Link>
+                <div>{loginError}</div>
             </div>
-            <div>{loginError}</div>
         </div>
     )
 }

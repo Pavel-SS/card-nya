@@ -1,12 +1,10 @@
 
-$primary: #110DC5;
-$secondary: #100dc548;
-
+@import "../../../s-1-main/app/style/gnel.module.scss";
 
 .container {
-    width: 70%;
+    width: 80%;
 
-    &__items {
+    &_items {
         position: relative;
     }
 
@@ -15,6 +13,9 @@ $secondary: #100dc548;
         width: 100%;
         border: solid 1.5px $primary;
         border-radius: 5px;
+        &::placeholder{
+            color:$secondary;
+        }
     }
     .eye {
         position: absolute;
@@ -25,11 +26,11 @@ $secondary: #100dc548;
         height: 20px;
 
         &_open {
-            background: url(../../../s-3-view/eye_visible_unhide_icon_132914.svg) 50% 50% no-repeat;
+            background: url(../../../s-3-assets/svg/eye_visible_unhide_icon_132914.svg) 50% 50% no-repeat;
         }
 
         &_close {
-            background: url(../../../s-3-view/hidden_eye_hide_icon_132911.svg) 50% 50% no-repeat;
+            background: url(../../../s-3-assets//svg/hidden_eye_hide_icon_132911.svg) 50% 50% no-repeat;
         }
     }
 

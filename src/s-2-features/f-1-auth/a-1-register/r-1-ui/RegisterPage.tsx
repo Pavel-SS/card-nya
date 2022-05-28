@@ -8,6 +8,7 @@ import { registerActions } from "../r-2-bll/RegisterActions";
 import { registerThunk } from "../r-2-bll/registerThunk";
 import { Registration } from "./Register";
 
+import gnel from "../../../../s-1-main/app/style/gnel.module.scss";
 
 export const RegistrationPage  = () => {
     const dispatch = useDispatch();
@@ -36,8 +37,8 @@ export const RegistrationPage  = () => {
     }
 
     return (
-        <>
-            <Registration 
+        <div className={gnel.block__auth}>
+            <Registration
                 error = {registerError}
                 isLoading={registerIsLoading} 
                 password={password}
@@ -49,6 +50,6 @@ export const RegistrationPage  = () => {
                 setConfirmPassword={setConfirmPassword}
                 setEmail = {setEmail}
             />
-        </>
+        </div>
     )
 }
