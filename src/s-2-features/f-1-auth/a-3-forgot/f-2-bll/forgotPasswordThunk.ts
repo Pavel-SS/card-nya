@@ -1,4 +1,4 @@
-import { forgotPasswordAPI } from './../f-3-api/forgotPasswordAPI';
+import { forgotPasswordAPI } from '../f-3-dal/forgotPasswordAPI';
 import { forgotPasswordAction } from './forgotPasswordAction';
 import { GeneralThunkType } from './../../../../s-1-main/m-2-bll/store';
 import axios from 'axios';
