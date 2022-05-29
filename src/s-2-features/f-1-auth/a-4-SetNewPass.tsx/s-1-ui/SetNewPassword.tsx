@@ -8,8 +8,8 @@ import text from "../../../../s-1-main/app/style/text.module.scss"
 type SetNewPassPropsType =  {
     newPassword: string
     confirmNewPassword: string
-    setNewPassword: (pass: string) => void
-    setConfirmNewPassword: (pass: string) => void
+    setNewPassword: (value: string) => void
+    setConfirmNewPassword: (value: string) => void
     changePassword: () => void
     isLoading: boolean
     error: string

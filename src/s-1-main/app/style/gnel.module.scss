@@ -43,7 +43,32 @@ $primari-light: #aaa9f7;
     }
 
 }
-
+.block{
+    &__avatar{
+        max-width: 150px;
+        img {
+            width: 100%;
+        }
+    }
+}
+.block__profile{
+    display: flex;
+    width: 1400px;
+    justify-content:center;
+    aside{
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        width: 30%;
+        max-width: 250px;
+        .btn {
+            margin: 0 auto;
+        }
+    }
+    section{
+        width: 70%;
+    }
+}
 .link{
     text-decoration: none;
     color:$secondary;
@@ -100,4 +125,10 @@ $primari-light: #aaa9f7;
 
 .inform_txt{
     max-width: 275px;
+}
+
+.profile{
+    &_edit{
+        min-height: 400px;
+    }
 }

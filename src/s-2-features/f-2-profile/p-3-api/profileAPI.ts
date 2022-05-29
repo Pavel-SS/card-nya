@@ -5,8 +5,8 @@ export const profileAPI = {
     me() {
         return instance.post<any, AxiosResponse<UserType>, {}>('auth/me',{})
     },
-    update(userName: string, avatar: string) {
-        return instance.put<any, AxiosResponse<UpdateType>, {userName:string, avatar?:string}>('auth/me', {userName})
+    update(name: string, avatar: string) {
+        return instance.put<any, AxiosResponse<UpdateType>, {name:string, avatar?: string}>('auth/me', {name})
     }
 }
 

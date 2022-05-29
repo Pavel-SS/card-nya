@@ -11,6 +11,11 @@ import { PacksTable } from "../../f-3-packs/p-1-ui/PacksTable";
 import { packsActions } from "../../f-3-packs/p-2-bll/packsActions";
 import { profileActions } from "../p-2-bll/profileActions";
 import { ProfileEdit } from "./u-1-edit/ProfileEdit";
+import { AddPackModal } from "../../f-5-modal_window/m-1-add_modal/AddPackModal"
+import profile_ava from "../../../s-3-assets/img/profile_ava.png"
+
+import gnel from "../../../s-1-main/app/style/gnel.module.scss"
+import text from "../../../s-1-main/app/style/text.module.scss"
 
 export const Profile = () => {
     const dispatch = useDispatch();
@@ -50,21 +55,25 @@ export const Profile = () => {
     }
 
     return (
-        <>
+        <div className={gnel.block__profile} >
            <aside>
+                   <img src={profile_ava} alt="avatar"/>
+                   <h4 className={text.fs18_700}>{userNameProfile}</h4>
+                   <Button 
+                        onClick={edit}
+                        className={`${gnel.btn} ${gnel.btn_bg} ${text.fs14_400}`}
+                   >
+                       Edite profile
+                    </Button>
                <div>
-                   <div>
-                       <img src="" alt="MyFoto" />
-                   </div>
-                   <h4>My name</h4>
-                   <p>Who am I ?</p>
-                   <Button onClick={edit}>Edite profile</Button>
-               </div>
-               <div>
-                    <p>Number of cards</p>
+                    <p className={text.fs18_700}>Number of cards</p>
                     <DoubleRange/>
                </div>
            </aside>
+           <AddPackModal
+                onClickModalWindow={addPackClose}
+                open = {adding}
+           />
            <section>
                <p>My Pack List</p>
                <SearchPanel 
@@ -72,11 +81,13 @@ export const Profile = () => {
                     onRechenge={onChangeRequest}
                     placeholder={"Enter pack's title"}
                />
-               <Button>
+               <Button
+                    onClick={addPackOpen} 
+               >
                    Add pack
                </Button>
                <PacksTable/>
            </section>
-        </>
+        </div>
     )
 }

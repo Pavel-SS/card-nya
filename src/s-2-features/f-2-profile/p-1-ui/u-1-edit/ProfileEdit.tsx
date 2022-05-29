@@ -9,6 +9,9 @@ import profile_ava from "../../../../s-3-assets/img/profile_ava.png"
 import { InputText } from "../../../../s-0-common/c-1-ui/InputText/InputText"
 import { Button } from "../../../../s-0-common/c-1-ui/Buttons/Button"
 
+import gnel from "../../../../s-1-main/app/style/gnel.module.scss";
+import text from "../../../../s-1-main/app/style/text.module.scss"
+
 export const ProfileEdit = () => {
     
     const dispatch = useDispatch()
@@ -24,7 +27,7 @@ export const ProfileEdit = () => {
     },[dispatch])
 
     const updating = useCallback(()=>{
-        dispatch(profileUpdateThunk(name, 'https//avatar-url.img'))
+        dispatch(profileUpdateThunk(name, ''))
     },[dispatch, name])
 
     const changeName = useCallback((name: string)=>{
@@ -36,19 +39,25 @@ export const ProfileEdit = () => {
     }
 
     return (
-        <>
-            <div>
-               Personal Data
+        <div className={`${gnel.block__auth}`}>
+            <div className={`${gnel.block__auth_box} ${gnel.profile_edit}`}>
+                <h2 className={`${gnel.item_title} ${text.fs27_700}`}>
+                    Personal Data
+                </h2>
+                <div className={gnel.block__avatar}>
+                    <img src={profile_ava} alt="avatar" />
+                </div>
+                <InputText value={name} onChangeText={changeName} />
+                <InputText value={user.email} />
+                <div className={gnel.btns}>
+                    <Button onClick={profileNav} className={`${gnel.btn} ${text.fs14_400}`}>
+                        Cancel
+                    </Button>
+                    <Button onClick={updating} className={`${gnel.btn} ${text.fs14_400}`}>
+                        Save
+                    </Button>
+                </div>
             </div>
-            <div>
-                <img src={profile_ava} alt="avatar"/>
-            </div>
-            <InputText value = {name} onChangeText = {changeName}/>
-            <InputText value = {user.email}/>
-            <div>
-                <Button onClick = {profileNav}>Cancel</Button>
-                <Button onClick = {updating}>Save</Button>
-            </div>
-        </>
+        </div>
     )
 }
