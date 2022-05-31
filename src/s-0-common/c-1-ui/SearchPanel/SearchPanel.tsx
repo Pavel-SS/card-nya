@@ -2,6 +2,7 @@ import React, { useCallback, useState } from "react"
 import { Button } from "../Buttons/Button"
 import { InputText } from "../InputText/InputText"
 
+import style from "./searchPanel.module.scss"
 
 type SearchPropsType = {
     onRechenge: (title: string) => void
@@ -12,7 +13,7 @@ type SearchPropsType = {
 export const SearchPanel: React.FC<SearchPropsType> = React.memo(({
     onRechenge,
     value,
-    placeholder
+    placeholder,
 }) => {
     const [title, setTitle] = useState<string>(value)
     const [timerID, setTimerID] = useState<number>(0)
@@ -25,15 +26,18 @@ export const SearchPanel: React.FC<SearchPropsType> = React.memo(({
     },[onRechenge, timerID])
 
     return(
-        <>
+        <div className={style.search}>
             <InputText
                 value={title}
                 onChangeText={onChangeText}
                 placeholder={placeholder}
+                className={style.search__panel}
             />
-            <Button onClick={()=> onChangeText('')}>
+            <Button onClick={()=> onChangeText('')}
+                    className={style.search__btn}
+            >
                 X
             </Button>
-        </>
+        </div>
     )
 })

@@ -16,6 +16,7 @@ import profile_ava from "../../../s-3-assets/img/profile_ava.png"
 
 import gnel from "../../../s-1-main/app/style/gnel.module.scss"
 import text from "../../../s-1-main/app/style/text.module.scss"
+import style from "./u-1-edit/profile.module.scss"
 
 export const Profile = () => {
     const dispatch = useDispatch();
@@ -74,15 +75,17 @@ export const Profile = () => {
                 onClickModalWindow={addPackClose}
                 open = {adding}
            />
-           <section>
-               <p>My Pack List</p>
+           <section className={style.profileTable}>
+               <h2 className={`${gnel.item_title} ${text.fs27_700} ${style.profileTable_title}`}>My Pack List</h2>
                <SearchPanel 
                     value={packName} 
                     onRechenge={onChangeRequest}
                     placeholder={"Enter pack's title"}
+                   
                />
                <Button
-                    onClick={addPackOpen} 
+                    onClick={addPackOpen}
+                    className={`${gnel.btn} ${text.fs14_400} ${style.profileTable_btn}`} 
                >
                    Add pack
                </Button>

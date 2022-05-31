@@ -1,0 +1,25 @@
+.profileTable{
+    display: grid;
+    grid-template-areas:
+        'title title'
+        'search btn'
+        'packs packs';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 60px 30px 1fr;
+
+    &_title{
+        grid-area: title;
+    }
+    div:nth-last-child(3n){
+        grid-area: search;
+        background-color:red;
+    }
+    &_btn{
+        grid-area: btn;
+    }
+    table:nth-of-type(1){
+        grid-area: packs;
+        margin-top: 25px;
+    }
+}
+
