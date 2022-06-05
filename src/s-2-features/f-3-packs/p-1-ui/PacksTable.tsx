@@ -7,6 +7,8 @@ import { getPacks } from "../p-2-bll/packsThunk"
 import { PackTableHeader } from "./PackTableHeader"
 import { PackTableRow } from "./PackTableRow"
 
+import s from "./tableStyle.module.scss"
+
 export const PacksTable = () => {
     const dispatch = useDispatch()
 
@@ -35,12 +37,12 @@ export const PacksTable = () => {
 
     return (
         <table>
-            <thead>
+            <thead className={s.table__header}>
                 <PackTableHeader text={'name'} param={'name'}/>
                 <PackTableHeader text={'cards'} param={'cardsCount'}/>
                 <PackTableHeader text={'update'} param={'updated'}/>
                 <PackTableHeader text={'creator'} param={'user_name'}/>
-                <td>actions</td>
+                <td className={s.table__th}>actions</td>
             </thead>
             <tbody>
                 <PackTableRow packs={packs}/>
