@@ -1,9 +1,17 @@
 @import "../../../s-1-main/app/style/gnel.module.scss";
 
 .table{
+    display: grid;
+    grid-template-columns: 1fr;
     &__header{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+    &__body{
+        &_tr{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+        }
     }
     &__th {
         display: flex;
