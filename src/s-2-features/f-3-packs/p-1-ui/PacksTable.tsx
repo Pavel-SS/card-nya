@@ -36,7 +36,7 @@ export const PacksTable = () => {
     }, [dispatch]) 
 
     return (
-        <table>
+        <table className={s.table}>
             <thead className={s.table__header}>
                 <PackTableHeader text={'name'} param={'name'}/>
                 <PackTableHeader text={'cards'} param={'cardsCount'}/>
@@ -44,7 +44,7 @@ export const PacksTable = () => {
                 <PackTableHeader text={'creator'} param={'user_name'}/>
                 <td className={s.table__th}>actions</td>
             </thead>
-            <tbody>
+            <tbody className={s.table__body}>
                 <PackTableRow packs={packs}/>
             </tbody>
         </table>
