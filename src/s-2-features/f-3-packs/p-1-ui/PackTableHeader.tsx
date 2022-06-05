@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux"
 import { PacksSortType, SortPositionType } from "../../../s-1-main/m-2-bll/initState"
 import { packsActions } from "../p-2-bll/packsActions"
 
+import s from "./tableStyle.module.scss"
 
 type PackTableHeaderPropsType = {
     text: string
@@ -25,11 +26,11 @@ export const PackTableHeader = ({text, param}:PackTableHeaderPropsType) => {
     }
 
     return (
-        <td>
+        <td className={s.table__th}>
             <span onClick={() => changeNameSort(param)}>{text}</span>
-            <div>
-                <div onClick={() => changeSortPosition('0')}>up</div>
-                <div onClick={() => changeSortPosition('1')}>down</div>
+            <div className={s.arrow__btns}>
+                <div className={`${s.arrow} ${s.arrow_up}`} onClick={() => changeSortPosition('0')}>&#62;</div>
+                <div className={`${s.arrow} ${s.arrow_down}`} onClick={() => changeSortPosition('1')}>&#62;</div>
             </div>
         </td>
     )
