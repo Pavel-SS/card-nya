@@ -13,6 +13,8 @@ import { LearnPackModal } from "../../../f-5-modal_window/m-5-learn_modal/LearnP
 import { learnCardsThunk } from "../../p-2-bll/learn/learnThunk";
 import { PackType } from "../../p-3-api/packsAPI";
 
+import s from "../tableStyle.module.scss"
+
 export type PackPropsType = {
     pack: PackType
 }
@@ -61,7 +63,7 @@ export const Pack: React.FC<PackPropsType> = React.memo(({ pack }) => {
     }, [])
 
     return (
-        <tr>
+        <tr className={s.table__body_tr}>
             <td onClick = {openCard}>{pack.name}</td>
             <td>{pack.cardsCount}</td>
             <td>{packUpdate}</td>

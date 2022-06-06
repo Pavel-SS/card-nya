@@ -1,0 +1,50 @@
+@import "../../../s-1-main/app/style/gnel.module.scss";
+
+.table{
+    display: grid;
+    grid-template-columns: 1fr;
+    &__header{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+    &__body{
+        &_tr{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+        }
+    }
+    &__th {
+        display: flex;
+        padding: 5px 2px;
+        span {
+            margin-right: 5px;
+        }
+    }
+}
+.arrow{
+    &__btns{
+        border: solid 0px ;
+        position: relative;
+        
+    }
+    
+    position: absolute;
+    cursor: pointer;
+    color: #fff;
+    min-height: 15px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: $primari-light;
+    
+    &:hover{
+        background-color: $primary;
+    }
+
+    &_up{
+        transform: rotate(270deg) translateX(5px) translateY(25%);    
+    }
+
+    &_down{
+        transform: rotate(90deg) translateX(5px) translateY(-25%);  
+    }
+}
