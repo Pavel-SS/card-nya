@@ -1,5 +1,6 @@
 import { useCallback, useEffect } from "react"
 import { useDispatch } from "react-redux"
+import { Paginator } from "../../../s-0-common/c-1-ui/Paginator/Paginator"
 import { selectPackCardsCount, selectPackMaxCards, selectPackMinCards, selectPackName, selectPackPage, selectPackPageCount, selectPacks, selectPackSort, selectPackUserID } from "../../../s-1-main/m-2-bll/selectors"
 import { useAppSelector } from "../../../s-1-main/m-2-bll/store"
 import { packsActions } from "../p-2-bll/packsActions"
@@ -38,14 +39,25 @@ export const PacksTable = () => {
     return (
         <table className={s.table}>
             <thead className={s.table__header}>
-                <PackTableHeader text={'name'} param={'name'}/>
+                {/* <PackTableHeader text={'name'} param={'name'}/>
                 <PackTableHeader text={'cards'} param={'cardsCount'}/>
                 <PackTableHeader text={'update'} param={'updated'}/>
                 <PackTableHeader text={'creator'} param={'user_name'}/>
-                <td className={s.table__th}>actions</td>
+                <td className={s.table__th}>actions</td> */}
             </thead>
             <tbody className={s.table__body}>
                 <PackTableRow packs={packs}/>
+                <td colSpan = {5} >
+                    <td>
+                        <Paginator
+                            page={packPageCount}
+                            pageCount = {packCardsCount}
+                            totalElementCount={packPage}
+                            changingNumberOfRenderedElements = {onChangePacksCount}
+                            changePage = {onChangePage}
+                        />
+                    </td>
+                </td>
             </tbody>
         </table>
     )
