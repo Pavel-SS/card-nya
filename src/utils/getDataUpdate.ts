@@ -1,12 +1,11 @@
 
+export const addZeroToDigit = (digit: number) => digit.toString().length < 2
+? `0${digit}` : `${digit}`
+
 export const getDataUpdate = (dataTime: Date) => {
     const date = new Date(dataTime),
           year = date.getFullYear(),
-          month = date.getMonth(),
-          day = date.getDay()
+          month = addZeroToDigit(date.getMonth() + 1),
+          day = addZeroToDigit(date.getDate())
     return `${year}.${month}.${day}`
 }
-// можно уменьшить количество выводимых значений
-// const numberDate = (num: number) => {
-//     return num.toString().length < 2 ? `0${num}` : `${num}`
-// }
