@@ -36,6 +36,7 @@ export const Paginator: React.FC<PaginatorPropstype> = React.memo(({
     return(
         totalElementCount ?
         <>
+            <>
             <div>
                 {
                     page > 3 && pagesCount > 5 && (
@@ -50,7 +51,7 @@ export const Paginator: React.FC<PaginatorPropstype> = React.memo(({
             <div>
                 {
                     renderPages.map(item => (
-                       <button onClick={() => onClickChangePage(pages.length)}>
+                       <button onClick={() => onClickChangePage(item)} key={item}>
                            {item}
                         </button> 
                     ))
@@ -79,6 +80,7 @@ export const Paginator: React.FC<PaginatorPropstype> = React.memo(({
                     onChangeOption = { changingNumberOfRenderedElements }
                 />
             </div>
+            </>
         </> :
         <div>Empty Paginator</div>
     )
