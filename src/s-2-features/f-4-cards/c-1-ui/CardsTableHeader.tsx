@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux"
 import { SortPositionType } from "../../../s-1-main/m-2-bll/initState"
 import { cardsActions } from "../c-2-bll/cardsActions"
 
+import s from "./../../style/tableStyle.module.scss"
+
 type CardsHeaderNameSortType = 'answer' | 'question' | 'updated' | 'grade'
 
 type CardsTableHeaderType = {
@@ -28,11 +30,11 @@ export const CardsTableHeader = ({text,param}: CardsTableHeaderType) => {
     }
 
     return (
-        <td>
+        <td className={s.table__th}>
             <span onClick={() => changeNameSort(param)}>{text}</span>
             <div>
-                <div onClick={() => changeSortPosition('0')}>up</div>
-                <div onClick={() => changeSortPosition('1')}>down</div>
+                <div className={`${s.arrow} ${s.arrow_up}`}  onClick={() => changeSortPosition('0')}>&#62;</div>
+                <div className={`${s.arrow} ${s.arrow_down}`}  onClick={() => changeSortPosition('1')}>&#62;</div>
             </div>
         </td>
     )

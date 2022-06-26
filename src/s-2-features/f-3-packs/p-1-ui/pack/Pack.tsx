@@ -8,7 +8,7 @@ import { getDataUpdate } from "../../../../utils/getDataUpdate";
 import { cardsActions } from "../../../f-4-cards/c-2-bll/cardsActions";
 import { PackType } from "../../p-3-api/packsAPI";
 
-import s from "../tableStyle.module.scss"
+import s from "./../../../style/tableStyle.module.scss"
 import { PackActionPanel } from "./PackActionPanel";
 
 export type PackPropsType = {

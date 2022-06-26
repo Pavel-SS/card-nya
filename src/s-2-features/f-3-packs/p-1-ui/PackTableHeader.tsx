@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux"
 import { PacksSortType, SortPositionType } from "../../../s-1-main/m-2-bll/initState"
 import { packsActions } from "../p-2-bll/packsActions"
 
-import s from "./tableStyle.module.scss"
+import s from "./../../style/tableStyle.module.scss"
 
 type PackTableHeaderPropsType = {
     text: string
