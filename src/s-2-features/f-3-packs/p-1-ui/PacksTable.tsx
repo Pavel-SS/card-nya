@@ -37,27 +37,30 @@ export const PacksTable = () => {
     }, [dispatch]) 
 
     return (
+        
         <table className={s.table}>
             <thead className={s.table__header}>
-                {/* <PackTableHeader text={'name'} param={'name'}/>
+                <PackTableHeader text={'name'} param={'name'}/>
                 <PackTableHeader text={'cards'} param={'cardsCount'}/>
                 <PackTableHeader text={'update'} param={'updated'}/>
                 <PackTableHeader text={'creator'} param={'user_name'}/>
-                <td className={s.table__th}>actions</td> */}
+                <td className={s.table__th}>actions</td>
             </thead>
             <tbody className={s.table__body}>
                 <PackTableRow packs={packs}/>
-                <td colSpan = {5} >
-                    <td>
-                        <Paginator
-                            page={packPageCount}
-                            pageCount = {packCardsCount}
-                            totalElementCount={packPage}
+                <tr>
+                    <td colSpan = {5}  className={s.pagination}>
+                        <div>
+                             <Paginator
+                            page={packPage}
+                            pageCount = {packPageCount}
+                            totalElementCount={packCardsCount}
                             changingNumberOfRenderedElements = {onChangePacksCount}
                             changePage = {onChangePage}
-                        />
+                            /> 
+                        </div>
                     </td>
-                </td>
+                </tr>
             </tbody>
         </table>
     )

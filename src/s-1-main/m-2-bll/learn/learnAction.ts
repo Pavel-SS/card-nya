@@ -1,5 +1,5 @@
-import { InferActionType } from './../../../../s-1-main/m-2-bll/action';
-import { CardType } from '../../../f-4-cards/c-3-api/cardsAPI';
+import { InferActionType } from '../action';
+import { CardType } from '../../../s-2-features/f-4-cards/c-3-api/cardsAPI';
 
 export const learnActions = {
     setCards: (cards: CardType[]) => ({type: 'learn/SET_CARDS', payload: {cards}} as const),
