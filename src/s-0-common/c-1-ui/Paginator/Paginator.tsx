@@ -3,14 +3,15 @@ import { getPages } from "../../../utils/getPages"
 import { Select } from "../Select/Select"
 
 export type PaginatorPropstype = {
+    changingNumberOfRenderedElements: (elem: number) => void
+    changePage: (page: number) => void
     page: number
     pageCount: number
     totalElementCount: number
-    changingNumberOfRenderedElements: (elem: number) => void
-    changePage: (page: number) => void
+    
 }
 
-const elemInPage = [5, 10, 15, 20, 25, 30];
+const elemInPage = [ 10, 20, 30];
 
 export const Paginator: React.FC<PaginatorPropstype> = React.memo(({
     page,
