@@ -6,8 +6,8 @@ import { selectAppIsLoading, selectLearnCards, selectLearnRandomeCards } from ".
 import { useAppSelector } from "../../../s-1-main/m-2-bll/store"
 import { getRandomeCards } from "../../../utils/getRandom"
 import { Grades, GRADES, GradeType } from "../../../utils/grade/grade"
-import { learnActions } from "../../f-3-packs/p-2-bll/learn/learnAction"
-import { rate } from "../../f-3-packs/p-2-bll/learn/learnReducer"
+import { learnActions } from "../../../s-1-main/m-2-bll/learn/learnAction"
+import { rate } from "../../../s-1-main/m-2-bll/learn/learnReducer"
 import { CardType } from "../../f-4-cards/c-3-api/cardsAPI"
 import { Modal, ModalType } from "../Modal"
 

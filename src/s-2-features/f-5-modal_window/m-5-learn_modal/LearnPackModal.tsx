@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Button } from "../../../s-0-common/c-1-ui/Buttons/Button";
 import { selectAppIsLoading, selectLearnRandomeCards } from "../../../s-1-main/m-2-bll/selectors";
 import { useAppSelector } from "../../../s-1-main/m-2-bll/store";
-import { learnActions } from "../../f-3-packs/p-2-bll/learn/learnAction";
+import { learnActions } from "../../../s-1-main/m-2-bll/learn/learnAction";
 import { CardType } from "../../f-4-cards/c-3-api/cardsAPI";
 import { Modal, ModalType } from "../Modal";
 

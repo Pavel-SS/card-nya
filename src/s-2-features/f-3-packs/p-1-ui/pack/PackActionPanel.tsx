@@ -5,7 +5,7 @@ import { DelPackModal } from "../../../f-5-modal_window/m-2-del_modal/DelPackMod
 import { EditPackModal } from "../../../f-5-modal_window/m-3-edit_modal/EditPackModal"
 import { LearnPackModal } from "../../../f-5-modal_window/m-5-learn_modal/LearnPackModal"
 import { PackType } from "../../p-3-api/packsAPI"
-import { learnCardsThunk } from "../../p-2-bll/learn/learnThunk";
+import { learnCardsThunk } from "../../../../s-1-main/m-2-bll/learn/learnThunk";
 
 type PackActionType = {
     myPack: boolean

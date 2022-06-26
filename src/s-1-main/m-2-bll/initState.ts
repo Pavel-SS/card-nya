@@ -43,7 +43,7 @@ export type PacksSortType = 'name' | 'cardsCount' | 'updated' | 'user_name'
 export const InitPackState = {
     packs: [] as PackType[],
     minCardsCount: 0,
-    maxCardsCount: 150,
+    maxCardsCount: 103,
     packsType: 'All' as GeneralOrMyPacks,
     params: {
         packName: '',
@@ -51,7 +51,7 @@ export const InitPackState = {
         max: 103,
         sortPacks: '0updated',
         page: 1,
-        pageCount: 15,
+        pageCount: 10,
         user_id: '',
     } as PackParamsType,
     cardPacksTotalCount: 0,
