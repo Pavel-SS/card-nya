@@ -1,10 +1,10 @@
-import { networkErrorHandler } from './../../../../utils/networkErrorHandler';
-import { cardsAPI } from './../../../f-4-cards/c-3-api/cardsAPI';
-import { appAction } from './../../../../s-1-main/app/appAction';
+import { networkErrorHandler } from '../../../utils/networkErrorHandler';
+import { cardsAPI } from '../../../s-2-features/f-4-cards/c-3-api/cardsAPI';
+import { appAction } from '../../app/appAction';
 import { LearnActionsType, learnActions } from './learnAction';
-import { learnInitialState } from './../../../../s-1-main/m-2-bll/initState';
-import { LearnInitialStateType } from "../../../../s-1-main/m-2-bll/initState";
-import { GeneralThunkType } from '../../../../s-1-main/m-2-bll/store';
+import { learnInitialState } from '../initState';
+import { LearnInitialStateType } from "../initState";
+import { GeneralThunkType } from '../store';
 
 export const learnReducer = (state:  LearnInitialStateType = learnInitialState, action: LearnActionsType): LearnInitialStateType =>{
     switch (action.type) {
