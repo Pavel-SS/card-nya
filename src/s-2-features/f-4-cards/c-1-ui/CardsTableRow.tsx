@@ -1,6 +1,6 @@
 import React from "react"
 import { CardType } from "../c-3-api/cardsAPI"
-import { Card } from "./Card"
+import { Card } from "./card/Card"
 
 export type CardsTableRowType = {
     cards: CardType[]

@@ -9,6 +9,7 @@ import { getCards } from "../c-2-bll/cardsThunk"
 import { CardsTableHeader } from "./CardsTableHeader"
 import { CardsTableRow } from "./CardsTableRow"
 
+import s from "./../../style/tableStyle.module.scss"
 
 export const CardsTable = () => {
     const dispatch = useDispatch()
@@ -41,29 +42,26 @@ export const CardsTable = () => {
     },[dispatch])
 
     return (
-        <table>
-            <thead>
-                <tr>
+        <table className={s.table}>
+            <thead className={s.table__header}>
                     <CardsTableHeader text={'question'} param={'question'}/>
                     <CardsTableHeader text={'answer'} param={'answer'}/>
                     <CardsTableHeader text={'updated'} param={'updated'}/>
                     <CardsTableHeader text={'grade'} param={'grade'}/>
                     {
-                        userID === packUserID && <td> actions </td>
+                        userID === packUserID && <td className={s.table__th}> actions </td>
                     }    
-                </tr>
             </thead>
-            <tbody>
+            <tbody className={s.table__body}>
                 <CardsTableRow cards={cards}/>
             </tbody>
             <tfoot>
-                <Paginator
-                    changingNumberOfRenderedElements = {onChangeCardsCount}
-                    changePage = {onChangePage}
-                    totalElementCount = {cardsTotalCount}
-                    page = {cardsPage}
-                    pageCount={cardsPageCount}
-                />
+                <tr>
+                    <td colSpan={5} className={s.pagination}>
+                        <Paginator changingNumberOfRenderedElements={onChangeCardsCount} changePage={onChangePage}
+                            totalElementCount={cardsTotalCount} page={cardsPage} pageCount={cardsPageCount} />
+                    </td>
+                </tr>
             </tfoot>
         </table>
     )

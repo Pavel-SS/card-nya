@@ -8,7 +8,7 @@ import { getPacks } from "../p-2-bll/packsThunk"
 import { PackTableHeader } from "./PackTableHeader"
 import { PackTableRow } from "./PackTableRow"
 
-import s from "./tableStyle.module.scss"
+import s from "./../../style/tableStyle.module.scss"
 
 export const PacksTable = () => {
     const dispatch = useDispatch()
@@ -48,6 +48,8 @@ export const PacksTable = () => {
             </thead>
             <tbody className={s.table__body}>
                 <PackTableRow packs={packs}/>
+            </tbody>
+            <tfoot>
                 <tr>
                     <td colSpan = {5}  className={s.pagination}>
                         <div>
@@ -61,7 +63,7 @@ export const PacksTable = () => {
                         </div>
                     </td>
                 </tr>
-            </tbody>
+            </tfoot>
         </table>
     )
 }
