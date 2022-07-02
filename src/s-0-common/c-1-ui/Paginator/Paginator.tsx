@@ -24,7 +24,7 @@ export const Paginator: React.FC<PaginatorPropstype> = React.memo(({
     const pages = []
     const pagesCount = Math.ceil(totalElementCount / pageCount)
 
-    for(let i = 1; i<= pagesCount; i++){
+    for(let i = 1; i<= pagesCount; i+=1){
         pages.push(i)
     }
 
