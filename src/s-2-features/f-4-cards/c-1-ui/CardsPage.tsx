@@ -61,7 +61,6 @@ export const CardsPage = () => {
                 {
                     profileUserID === packUserID && <Button onClick={cardAddOpen}>Add card</Button>
                 }
-                
             </div>
             <CardsTable/>
         </>
