@@ -56,7 +56,7 @@ export const Card: React.FC<CardPropsType> = React.memo(({card})=>{
             <td>{card.answer}</td>
             <td>{dataUpdate}</td>
             <td>{card.grade.toFixed(2)}</td>
-            {packUserID === userID && <td>
+            {userID === packUserID && <td>
                     <Button onClick={editCardOpen}>Edit</Button>    
                     <Button onClick={delCardOpen}>Del</Button>    
                 </td>
