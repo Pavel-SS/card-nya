@@ -17,16 +17,24 @@ export const RouteFunc = () => {
         <Routes>
             <Route path="/" element = {<Navigate to={PATH.PROFILE}/>}/> 
             <Route path={PATH.PROFILE} element = {
-                // <AuthNavigate>
+                <AuthNavigate>
                     <Profile/>
-                // </AuthNavigate>
+                </AuthNavigate>
             }/> 
             <Route path={PATH.LOGIN} element={<Login/>}/>
             <Route path={PATH.REGISTER} element={<RegistrationPage/>}/>
-            <Route path={PATH.PACKS} element={<Packs/>}/>
+            <Route path={PATH.PACKS} element={
+                <AuthNavigate>
+                    <Packs/>
+                </AuthNavigate>}
+            />
             <Route path={PATH.FORGOT} element={<ForgotPasswordPage/>}/>
             <Route path={PATH.SET_NEW_PASS} element={<SetNewPasswordPage/>}/>
-            <Route path={`${PATH.CARDS}`} element={<CardsPage/>}/>
+            <Route path={`${PATH.CARDS}/:packUserID`} element={
+                <AuthNavigate>
+                    <CardsPage/>
+                </AuthNavigate>}
+            />
             <Route />
             <Route />
         </Routes>

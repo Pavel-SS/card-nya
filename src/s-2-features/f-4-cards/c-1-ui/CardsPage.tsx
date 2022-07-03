@@ -58,7 +58,9 @@ export const CardsPage = () => {
                 <div>
                     {packName}
                 </div>
-                <Button onClick={cardAddOpen}>Add card</Button>
+                {
+                    profileUserID === packUserID && <Button onClick={cardAddOpen}>Add card</Button>
+                }
             </div>
             <CardsTable/>
         </>

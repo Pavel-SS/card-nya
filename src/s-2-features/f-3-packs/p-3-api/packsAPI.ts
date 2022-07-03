@@ -28,6 +28,8 @@ export type PacksType = {
     cardsCount: number
     minCardsInPack: number
     maxCardsInPack: number
+    page: number
+    pageCount: number
     token: string
     tokenDeathTime: number
 }
