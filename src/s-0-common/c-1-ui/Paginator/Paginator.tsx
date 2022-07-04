@@ -41,11 +41,11 @@ export const Paginator: React.FC<PaginatorPropsType> = React.memo(({
             <div>
                 {
                     page > 3 && pagesCount > 5 && (
-                        <div>
+                        <>
                            <button onClick={()=> onClickChangePage(page - 1)}>{'<-'}</button> 
                            <button onClick={() => onClickChangePage(1)}>1</button>
                            <span>...</span>
-                        </div>
+                        </>
                     )
                 }
             </div>
@@ -61,15 +61,15 @@ export const Paginator: React.FC<PaginatorPropsType> = React.memo(({
             <div>
                 {
                     page < pages.length - 2 && pagesCount > 5 && (
-                        <div>
+                        <>
                             <span>...</span>
-                            <button onClick={() => {onClickChangePage(pages.length)}}>
+                            <button onClick={() => onClickChangePage(pages.length)}>
                                 {pages.length}
                             </button>
-                            <button onClick={() => {onClickChangePage(page + 1)}}>
+                            <button onClick={() => onClickChangePage(page + 1)}>
                                 {'->'}
                             </button>
-                        </div>
+                        </>
                     )
                 }
             </div>
