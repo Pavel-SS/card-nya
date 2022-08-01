@@ -4,12 +4,14 @@ import { HeaderMenu } from '../m-1-ui/main/HeaderMenu';
 import { RouteFunc } from '../m-1-ui/main/routes/Routes';
 import { useDispatch } from 'react-redux';
 import { authPage } from '../../s-2-features/f-2-profile/p-2-bll/profileThunk';
+import { useAppSelector } from '../m-2-bll/store';
+import { selectProfileInitialize } from '../m-2-bll/selectors';
 
 
 
 function App() {
   const dispatch = useDispatch();
-
+  const initialize = useAppSelector(selectProfileInitialize)
   useEffect(() => {
     dispatch(authPage)
   },[])
