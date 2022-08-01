@@ -1,0 +1,13 @@
+@keyframes spin {
+    to { transform: rotate(1turn); }
+}
+
+.progress {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    animation: spin 1s infinite steps(25);
+    width: 5rem;
+    height: 5rem;
+    
+}
