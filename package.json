@@ -19,6 +19,7 @@
     "@types/react-dom": "^18.0.0",
     "@types/react-redux": "^7.1.23",
     "@types/redux-logger": "^3.0.9",
+    "@types/sass": "^1.43.1",
     "axios": "^0.26.1",
     "formik": "^2.2.9",
     "material-ui-icons": "^1.0.0-beta.36",
