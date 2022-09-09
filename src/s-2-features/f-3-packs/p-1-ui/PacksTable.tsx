@@ -11,8 +11,7 @@ import { PackTableRow } from "./PackTableRow"
 import s from "./../../style/tableStyle.module.scss"
 
 export const PacksTable = () => {
-    const dispatch = useDispatch()
-
+    
     const packs = useAppSelector(selectPacks)
     const packName = useAppSelector(selectPackName)
     const userID = useAppSelector(selectPackUserID)
@@ -22,11 +21,8 @@ export const PacksTable = () => {
     const packPage = useAppSelector(selectPackPage)
     const packPageCount = useAppSelector(selectPackPageCount)
     const packCardsCount = useAppSelector(selectPackCardsCount)
-
-    useEffect(() => {
-        dispatch(getPacks())
-    }, [dispatch, packName, userID, packSort, max, min, packPageCount])
-
+    
+    const dispatch = useDispatch()
     const onChangePage = useCallback((page: number)=>{
         dispatch(packsActions.setCurrentPage(page))
         dispatch(getPacks())
@@ -35,6 +31,10 @@ export const PacksTable = () => {
     const onChangePacksCount = useCallback((quantity: number) => {
         dispatch(packsActions.setPageCount(quantity))
     }, [dispatch]) 
+
+    useEffect(() => {
+        dispatch(getPacks())
+    }, [dispatch, packName, userID, packSort, max, min, packPageCount])
 
     return (
         
