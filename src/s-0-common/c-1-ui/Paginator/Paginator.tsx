@@ -5,25 +5,24 @@ import { Select } from "../Select/Select"
 export type PaginatorPropsType = {
     changingNumberOfRenderedElements: (elem: number) => void
     changePage: (page: number) => void
+    totalElementCount: number
     page: number
     pageCount: number
-    totalElementCount: number
-    
 }
 
 const elemInPage = [ 10, 20, 30];
 
 export const Paginator: React.FC<PaginatorPropsType> = React.memo(({
+    changingNumberOfRenderedElements,
+    changePage,
+    totalElementCount,
     page,
     pageCount,
-    totalElementCount,
-    changingNumberOfRenderedElements,
-    changePage
 }) => {
 
     const pages = []
     const pagesCount = Math.ceil(totalElementCount / pageCount)
-
+    console.log(totalElementCount)
     for(let i = 1; i<= pagesCount; i+=1){
         pages.push(i)
     }
@@ -35,7 +34,7 @@ export const Paginator: React.FC<PaginatorPropsType> = React.memo(({
     }
 
     return(
-        totalElementCount ?
+        !totalElementCount ?
         <>
             <>
             <div>
