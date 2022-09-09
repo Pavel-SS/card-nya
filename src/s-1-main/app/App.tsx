@@ -11,24 +11,26 @@ import s from './App.module.scss'
 
 
 function App() {
-  const dispatch = useDispatch();
+  
   const initialize = useAppSelector(selectProfileInitialize)
   const loading = useAppSelector(selectAppIsLoading) 
+  
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(authPage)
+    dispatch(authPage())
   },[])
 
-  // if (!initialize) {
-  //   return (
-  //     <div><Preloader/></div>
-  //   )
-  // }
+  if (!initialize) {
+    return (
+      <div><Preloader/></div>
+    )
+  }
 
   return (
     <div className="App">
           <HeaderMenu />
-          {/* {loading && <div className={s.appProgress}><Preloader/></div>} */}
+          {loading && <div className={s.appProgress}><Preloader/></div>}
           <RouteFunc />
     </div>
   );
