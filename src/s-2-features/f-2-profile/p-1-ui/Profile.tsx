@@ -2,8 +2,8 @@ import { useCallback, useState } from "react";
 import { useDispatch } from "react-redux"
 import { useLocation } from "react-router-dom";
 import { Button } from "../../../s-0-common/c-1-ui/Buttons/Button";
-import { DoubleRange } from "../../../s-0-common/c-1-ui/DoubleRange/DoubleRange";
 import { SearchPanel } from "../../../s-0-common/c-1-ui/SearchPanel/SearchPanel";
+import { DoubleRangePacks } from "../../../s-0-common/c-1-ui/DoubleRange/DoubleRangePacks";
 import { PATH } from "../../../s-1-main/m-1-ui/main/routes/path";
 import { selectPackName, selectProfileEdit, selectProfileInitialize, selectProfileObtain, selectProfileUserID, selectProfileUserName } from "../../../s-1-main/m-2-bll/selectors"
 import { useAppSelector } from "../../../s-1-main/m-2-bll/store"
@@ -68,7 +68,7 @@ export const Profile = () => {
                     </Button>
                <div>
                     <p className={text.fs18_700}>Number of cards</p>
-                    <DoubleRange/>
+                    <DoubleRangePacks/>
                </div>
            </aside>
            <AddPackModal
