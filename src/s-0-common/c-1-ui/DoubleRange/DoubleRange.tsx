@@ -7,7 +7,7 @@ type DoubleRangeType = {
     min?: number
     max?: number
 }
-const minDistance = 15;
+const minDistance = 10;
 
 export const DoubleRange: React.FC<DoubleRangeType> = React.memo(({
     onChangeRange,
@@ -16,7 +16,7 @@ export const DoubleRange: React.FC<DoubleRangeType> = React.memo(({
     max,
     ...props
 }) => {
-    const minMax = [0,150]
+    const minMax = [0,103]
     const [range, setRange] = useState<number[]>(value ? value : minMax)
 
     const handleChange = (
@@ -31,7 +31,6 @@ export const DoubleRange: React.FC<DoubleRangeType> = React.memo(({
             } else {
                 setRange([range[0], Math.max(newValue[1], range[0] + minDistance)])
             }
-            // setRange(newValue as number[]);
             onChangeCallback(newValue as number[])
     }
     const onChangeCallback = (arr: number[]) => {

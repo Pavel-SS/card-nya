@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Button } from '../../../s-0-common/c-1-ui/Buttons/Button'
-import { DoubleRange } from '../../../s-0-common/c-1-ui/DoubleRange/DoubleRange'
+import { DoubleRangePacks } from '../../../s-0-common/c-1-ui/DoubleRange/DoubleRangePacks'
 import { Radio } from '../../../s-0-common/c-1-ui/Radio/Radio'
 import { SearchPanel } from '../../../s-0-common/c-1-ui/SearchPanel/SearchPanel'
 import {GeneralOrMyPacks} from '../../../s-1-main/m-2-bll/initState'
@@ -56,7 +56,7 @@ export const Packs = () => {
         <div>
             <p>PACK</p>
             <Radio options={typePack} onChangeOption={onChangeTypePacks}/>
-            <DoubleRange/>
+            <DoubleRangePacks/>
         </div>
         <div>
             <SearchPanel
