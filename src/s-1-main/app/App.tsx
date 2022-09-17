@@ -23,7 +23,7 @@ function App() {
 
   if (!initialize) {
     return (
-      <div><Preloader/></div>
+      <div className={s.appProgress}><Preloader/></div>
     )
   }
 
