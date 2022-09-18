@@ -8,6 +8,7 @@ import { useAppSelector } from '../m-2-bll/store';
 import { selectAppIsLoading, selectProfileInitialize } from '../m-2-bll/selectors';
 import { Preloader } from '../../s-0-common/c-1-ui/Preloader/Preloader';
 import s from './App.module.scss'
+import { BtnScrol } from '../../s-0-common/c-1-ui/BtnScroll/BtnScroll';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <HeaderMenu />
           {loading && <div className={s.appProgress}><Preloader/></div>}
           <RouteFunc />
+          <BtnScrol />
     </div>
   );
 }
