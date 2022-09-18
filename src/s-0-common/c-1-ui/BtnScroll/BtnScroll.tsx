@@ -1,6 +1,8 @@
 import {useState, useCallback, useEffect} from "react";
 import { Button } from "../Buttons/Button";
 
+import s from "./BtnScroll.module.scss"
+
 export const BtnScrol = () => {
     const [hiddenScroll, setHiddenScroll] = useState<boolean>(false);
 
@@ -23,7 +25,7 @@ export const BtnScrol = () => {
     return (
         <>
             {
-                hiddenScroll && <Button onClick={scrollToFunc}>Up</Button>
+                hiddenScroll && <Button className={s.arrow} onClick={scrollToFunc}></Button>
             }
         </>
     )
