@@ -1,0 +1,21 @@
+@import "../../../s-1-main/app/style/gnel.module.scss";
+
+.arrow {
+    position: relative;
+    left: 50%;
+    transform: rotate(180deg) translateX(50%);
+    height: 40px;
+    width: 40px;
+    background-image: url("../../../../public/angle_double_down_icon_125391.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #d7e0e0;
+    border: none;
+    margin-right: 25px;
+
+    &:hover {
+        transition: 800ms;
+        background-color: $primari-light;
+        border-radius: 20%;
+    }
+}
