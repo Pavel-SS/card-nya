@@ -22,7 +22,8 @@ export const Radio: React.FC<RadioPropsType> = React.memo(({
         onChangeOption && onChangeOption(e.currentTarget.value)
     }
     const mappedOptions: any[] = options ? options.map((o,i) => {
-        <label key = {name + '-' + i}> 
+        return (
+            <label key = {name + '-' + i}> 
             <input 
                 type={'radio'} 
                 name = {name}
@@ -33,11 +34,12 @@ export const Radio: React.FC<RadioPropsType> = React.memo(({
             />
             <span>{o}</span>
         </label>
+        )
     }): []
 
     return(
-        <>
+        <div>
          {mappedOptions}
-        </>
+        </div>
     )
 })
