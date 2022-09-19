@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import { useDispatch } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
 import { Button } from "../../../s-0-common/c-1-ui/Buttons/Button";
+import { SearchPanel } from "../../../s-0-common/c-1-ui/SearchPanel/SearchPanel";
 import { selectCardAnswer, selectCardQuestion, selectCardsPackID, selectCardsPackName, selectProfileUserID } from "../../../s-1-main/m-2-bll/selectors";
 import { useAppSelector } from "../../../s-1-main/m-2-bll/store";
 import { AddCardModal } from "../../f-5-modal_window/m-1-add_modal/AddCardModal";
@@ -58,6 +59,16 @@ export const CardsPage = () => {
                 <div>
                     {packName}
                 </div>
+                <SearchPanel 
+                    onRechenge={onChangeQuestion}
+                    value={question}
+                    placeholder ={'Enter a question'}
+                />
+                <SearchPanel 
+                    onRechenge={onChangeAnswer}
+                    value={answer}
+                    placeholder ={'Enter answer'}
+                />
                 {
                     profileUserID === packUserID && <Button onClick={cardAddOpen}>Add card</Button>
                 }
