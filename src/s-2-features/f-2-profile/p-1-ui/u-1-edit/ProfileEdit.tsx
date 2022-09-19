@@ -11,6 +11,7 @@ import { Button } from "../../../../s-0-common/c-1-ui/Buttons/Button"
 
 import gnel from "../../../../s-1-main/app/style/gnel.module.scss";
 import text from "../../../../s-1-main/app/style/text.module.scss"
+import { Preloader } from "../../../../s-0-common/c-1-ui/Preloader/Preloader"
 
 export const ProfileEdit = () => {
     
@@ -41,6 +42,7 @@ export const ProfileEdit = () => {
     return (
         <div className={`${gnel.block__auth}`}>
             <div className={`${gnel.block__auth_box} ${gnel.profile_edit}`}>
+                {obtain && <Preloader/>}
                 <h2 className={`${gnel.item_title} ${text.fs27_700}`}>
                     Personal Data
                 </h2>

@@ -16,14 +16,14 @@ import profile_ava from "../../../s-3-assets/img/profile_ava.png"
 
 import gnel from "../../../s-1-main/app/style/gnel.module.scss"
 import text from "../../../s-1-main/app/style/text.module.scss"
-import style from "./u-1-edit/profile.module.scss"
+import style from "./profile.module.scss"
 
 export const Profile = () => {
     const dispatch = useDispatch();
     const location = useLocation();
 
     const userNameProfile = useAppSelector(selectProfileUserName)
-    const editProfile = useAppSelector(selectProfileEdit)
+    const profileEdit = useAppSelector(selectProfileEdit)
     const userID = useAppSelector(selectProfileUserID)
     const packName = useAppSelector(selectPackName)
 
@@ -38,7 +38,7 @@ export const Profile = () => {
         dispatch(packsActions.setSearch(title))
     },[dispatch])
 
-    if (editProfile) {
+    if (profileEdit) {
         return <ProfileEdit/>
     }
 
