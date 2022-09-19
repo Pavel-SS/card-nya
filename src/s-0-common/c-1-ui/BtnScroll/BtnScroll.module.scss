@@ -2,7 +2,7 @@
 
 .arrow {
     position: relative;
-    left: 50%;
+    left: 35vw;
     transform: rotate(180deg) translateX(50%);
     height: 40px;
     width: 40px;
@@ -12,6 +12,7 @@
     background-color: #d7e0e0;
     border: none;
     margin-right: 25px;
+    bottom:40px;
 
     &:hover {
         transition: 800ms;
