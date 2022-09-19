@@ -11,7 +11,6 @@ import { CardsPage } from "../../../../s-2-features/f-4-cards/c-1-ui/CardsPage";
 import { SetNewPasswordPage } from "../../../../s-2-features/f-1-auth/a-4-SetNewPass.tsx/s-1-ui/SetNewPasswordPage";
 
 
-
 export const RouteFunc = () => {
     return ( 
         <Routes>
@@ -35,8 +34,6 @@ export const RouteFunc = () => {
                     <CardsPage/>
                 </AuthNavigate>}
             />
-            <Route />
-            <Route />
         </Routes>
     )
 }
