@@ -20,6 +20,6 @@ export const loginAPI = {
             .then(res => res.data)
     },
     logout(){
-        return instance.delete<any, AxiosResponse<LogoutType>>('auth/login')
+        return instance.delete<any, AxiosResponse<LogoutType>>('auth/me')
     },
 }

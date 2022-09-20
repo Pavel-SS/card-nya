@@ -9,9 +9,11 @@ import { selectLoginError, selectLoginIsLoading, selectLoginLogged } from "../..
 import { useAppSelector } from "../../../../s-1-main/m-2-bll/store"
 import { loginActions } from "../l-2-bll/loginActions"
 import { loginThunk } from "../l-2-bll/loginThunk"
+import { Preloader } from "../../../../s-0-common/c-1-ui/Preloader/Preloader"
 
 import gnel from "../../../../s-1-main/app/style/gnel.module.scss"
 import text from "../../../../s-1-main/app/style/text.module.scss"
+import s from '../../../../s-1-main/app/App.module.scss'
 
 export const Login = () => {
     const dispatch = useDispatch();
@@ -45,7 +47,7 @@ export const Login = () => {
                 <InputText value={password} onChangeText={setPassword} onEnterPress={clickLogin} placeholder="password"
                     visibilityPassword />
                 <Checkbox checked={rememberMe} onChecked={setRememberMe}> remember me </Checkbox>
-                <Link to='/register' className={`${gnel.link} ${gnel.link__forgot} ${text.fs14_400}`}>
+                <Link to='/forgot-password' className={`${gnel.link} ${gnel.link__forgot} ${text.fs14_400}`}>
                 Forgot password</Link>
                 <Button className={`${gnel.btn} ${gnel.btn_sml} ${text.fs14_400}`} onClick={clickLogin}>Login</Button>
                 <p className={`${gnel.item_txt} ${text.fs12_700}`}>Don't have an account?</p>
@@ -53,6 +55,7 @@ export const Login = () => {
                 Sign up</Link>
                 <div>{loginError}</div>
             </div>
+            {loginLoading && <div className={s.appProgress}><Preloader/></div>}
         </div>
     )
 }
