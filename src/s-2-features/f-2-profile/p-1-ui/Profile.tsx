@@ -5,7 +5,7 @@ import { Button } from "../../../s-0-common/c-1-ui/Buttons/Button";
 import { SearchPanel } from "../../../s-0-common/c-1-ui/SearchPanel/SearchPanel";
 import { DoubleRangePacks } from "../../../s-0-common/c-1-ui/DoubleRange/DoubleRangePacks";
 import { PATH } from "../../../s-1-main/m-1-ui/main/routes/path";
-import { selectPackName, selectProfileEdit, selectProfileInitialize, selectProfileObtain, selectProfileUserID, selectProfileUserName } from "../../../s-1-main/m-2-bll/selectors"
+import { selectPackName, selectProfileEdit, selectProfileUserID, selectProfileUserName } from "../../../s-1-main/m-2-bll/selectors"
 import { useAppSelector } from "../../../s-1-main/m-2-bll/store"
 import { PacksTable } from "../../f-3-packs/p-1-ui/PacksTable";
 import { packsActions } from "../../f-3-packs/p-2-bll/packsActions";
