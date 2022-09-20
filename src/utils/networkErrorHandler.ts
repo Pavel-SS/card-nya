@@ -1,6 +1,6 @@
 import { appAction, AppActionType } from './../s-1-main/app/appAction';
 import axios from "axios";
-import { Dispatch } from "react";
+import { Dispatch } from "redux";
 
 
 export const networkErrorHandler = (dispatch: Dispatch<AppActionType>, e: Error) => {
