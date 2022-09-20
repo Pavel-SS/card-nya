@@ -1,5 +1,5 @@
 
-export const enum PATH {
+export enum PATH {
     LOGIN = '/login',
     REGISTER = '/register',
     PROFILE = '/profile',
