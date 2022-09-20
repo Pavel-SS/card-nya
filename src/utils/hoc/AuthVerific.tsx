@@ -8,11 +8,9 @@ export const AuthNavigate: React.FC = ({children}) => {
     const logIn = useAppSelector(selectLoginLogged)
 
     if (!logIn){
-        return <Navigate to={PATH.LOGIN}/>
+         return <Navigate to={PATH.LOGIN}/>
     }
     return (
-        <>
-            {children}
-        </>
+        <> {children} </>
     )
 }
