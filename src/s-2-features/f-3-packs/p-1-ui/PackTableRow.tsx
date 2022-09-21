@@ -2,8 +2,6 @@ import React from "react";
 import { PackType } from "../p-3-api/packsAPI";
 import { Pack } from "./pack/Pack";
 
-import s from "./tableStyle.module.scss" 
-
 export type PackTableRowType = {
     packs: PackType[]
 }

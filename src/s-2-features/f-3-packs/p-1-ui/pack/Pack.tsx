@@ -33,7 +33,7 @@ export const Pack: React.FC<PackPropsType> = React.memo(({ pack }) => {
 
     return (
         <tr className={s.table__body_tr}>
-            <td onClick = {openCard}>{pack.name}</td>
+            <td onClick = {openCard} style={{cursor: 'pointer'}}>{pack.name}</td>
             <td>{pack.cardsCount}</td>
             <td>{packUpdate}</td>
             <td>{pack.user_name}</td>
