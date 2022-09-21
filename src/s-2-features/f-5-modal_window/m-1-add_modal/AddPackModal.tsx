@@ -4,24 +4,28 @@ import { Button } from "../../../s-0-common/c-1-ui/Buttons/Button";
 import { Checkbox } from "../../../s-0-common/c-1-ui/Checkbox/Checkbox";
 import { InputText } from "../../../s-0-common/c-1-ui/InputText/InputText";
 import { addPacks } from "../../f-3-packs/p-2-bll/packsThunk";
-import { Modal, ModalType } from "../Modal"
+import { Modal} from "../Modal"
 import s from "./../../style/modalWindow.module.scss"
 
+type AddPackModalType = {
+    onClickClose: () => void
+    open: boolean
+}
 
-export const AddPackModal: React.FC<ModalType> = React.memo(({onClickModalWindow,open}) => {
+export const AddPackModal: React.FC<AddPackModalType> = React.memo(({onClickClose, open}) => {
     
     const [name, setName] = useState<string>(''),
           [privatePack, setPrivatePack] = useState<boolean>(false);
 
     const dispatch = useDispatch();
-
+    
     const onClickAddPack = useCallback(()=>{
         dispatch(addPacks(name, privatePack))
         onClickCleanState()
-    }, [dispatch, onClickModalWindow, name, privatePack])
+    }, [dispatch, onClickClose(), name, privatePack])
 
     const onClickCleanState = () => {
-        onClickModalWindow()
+        onClickClose()
         setName('')
         setPrivatePack(false)
     }
