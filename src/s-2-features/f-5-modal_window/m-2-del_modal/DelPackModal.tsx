@@ -5,13 +5,15 @@ import { delPacks } from "../../f-3-packs/p-2-bll/packsThunk";
 import { Modal, ModalType } from "../Modal";
 
 
-export type DelPackModalType = ModalType & {
+export type DelPackModalType = {
+    onClickClose: () => void
+    open: boolean 
     id: string
     name: string
 }
 
 export const DelPackModal: React.FC<DelPackModalType> = React.memo(({
-    onClickModalWindow,
+    onClickClose,
     open,
     id,
     name
@@ -20,14 +22,14 @@ export const DelPackModal: React.FC<DelPackModalType> = React.memo(({
 
     const onClickDelPack = useCallback(()=>{
         dispatch(delPacks(id, name))
-        onClickModalWindow()
-    },[dispatch, onClickModalWindow, id, name])
+        onClickClose()
+    },[dispatch, onClickClose, id, name])
     return (
-        <Modal onClickModalWindow={onClickModalWindow} open={open}>
+        <Modal onClickModalWindow={onClickClose} open={open}>
             <p>Do you really want to remove pack '{name}'?</p>
             <p>All cards will be excluded from this course.</p>
             <div>
-                <Button onClick={onClickModalWindow}>Cancel</Button>
+                <Button onClick={onClickClose}>Cancel</Button>
                 <Button onClick={onClickDelPack}>Delete</Button>
             </div>
         </Modal>
