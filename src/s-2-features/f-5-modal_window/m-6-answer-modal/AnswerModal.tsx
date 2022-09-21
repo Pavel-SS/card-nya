@@ -7,12 +7,17 @@ import { useAppSelector } from "../../../s-1-main/m-2-bll/store"
 import { getRandomeCards } from "../../../utils/getRandom"
 import { Grades, GRADES, GradeType } from "../../../utils/grade/grade"
 import { learnActions } from "../../../s-1-main/m-2-bll/learn/learnAction"
-import { rate } from "../../../s-1-main/m-2-bll/learn/learnReducer"
+import { rate } from "../../../s-1-main/m-2-bll/learn/learnThunk"
 import { CardType } from "../../f-4-cards/c-3-api/cardsAPI"
-import { Modal, ModalType } from "../Modal"
+import { Modal } from "../Modal"
+import { Preloader } from "../../../s-0-common/c-1-ui/Preloader/Preloader"
 
-type AnswerModalType = ModalType & {
+import s from "../../../s-1-main/app/App.module.scss"
+
+type AnswerModalType = {
     onClickLearnPack: () => void
+    onClickClose: () => void
+    open: boolean
     name: string
 }
 
@@ -25,8 +30,8 @@ const gradesArr = [
 ]
 
 export const AnswerModal: React.FC<AnswerModalType> = React.memo(({
-    onClickModalWindow,
     onClickLearnPack,
+    onClickClose,
     open,
     name
 }) => {
@@ -42,11 +47,11 @@ export const AnswerModal: React.FC<AnswerModalType> = React.memo(({
     
     const nextQuestion = useCallback(()=>{
         dispatch(learnActions.setRandome(getRandomeCards(cards)))
-        onClickModalWindow()
         onClickLearnPack()
+        onClickClose()
         setRating(false)
         setGrade(GRADES.ONE)
-    },[dispatch, onClickModalWindow, onClickLearnPack, cards])
+    },[dispatch, onClickLearnPack, onClickClose, cards])
 
     const assessment = useCallback(() => {
         dispatch(rate(Grades[grade], randomCard._id))
@@ -59,21 +64,21 @@ export const AnswerModal: React.FC<AnswerModalType> = React.memo(({
     }, [])
 
     const onClickLearnClose = useCallback(()=>{
-        onClickModalWindow()
+        onClickClose()
         dispatch(learnActions.setRandome({} as CardType))
         dispatch(learnActions.setCards([]))
         setRating(false)
-    }, [dispatch, onClickModalWindow])
+    }, [dispatch, onClickClose])
 
 
     return (
         <Modal onClickModalWindow={onClickLearnClose} open={open}>
             {
                 loading ? 
-                <></>: 
+                <div className={s.appProgress}><Preloader/></div> : 
                 <>
                     <div>
-                        <p>Learn {name}</p>
+                        <p>Learn: {name}</p>
                         <p>Question: {randomCard.question}</p>
                         <p>Answer: {randomCard.answer}</p>
                     </div>
@@ -88,7 +93,7 @@ export const AnswerModal: React.FC<AnswerModalType> = React.memo(({
                     </div>
                     <div>
                         <Button onClick={onClickLearnClose}> Cancel</Button>
-                        <Button onClick={assessment}>Rate</Button>
+                        <Button onClick={assessment} disabled={rating}>Rate</Button>
                         <Button onClick={nextQuestion}>Next</Button>
                     </div>
                 </>

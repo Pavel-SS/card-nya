@@ -1,17 +1,19 @@
 import React, { useCallback, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Modal, ModalType } from '../Modal'
+import { Modal } from '../Modal'
 import { updatePacks } from "../../f-3-packs/p-2-bll/packsThunk";
 import { InputText } from "../../../s-0-common/c-1-ui/InputText/InputText";
 import { Button } from "../../../s-0-common/c-1-ui/Buttons/Button";
 
-export type EditPackModalType= ModalType & {
+export type EditPackModalType= {
+    onClickClose: () => void
+    open: boolean
     id: string
     name: string
 }
 
 export const EditPackModal: React.FC<EditPackModalType> = React.memo(({
-    onClickModalWindow,
+    onClickClose,
     open,
     id,
     name
@@ -23,10 +25,10 @@ export const EditPackModal: React.FC<EditPackModalType> = React.memo(({
     const onClickEditPack = useCallback(()=>{
         dispatch(updatePacks(id,namePack,name))
         onClickCleanState()
-    },[dispatch, onClickModalWindow, id, namePack, name])
+    },[dispatch, onClickClose, id, namePack, name])
     
     const onClickCleanState = () => {
-        onClickModalWindow()
+        onClickClose()
         setNamePack(name)
     }
     return (

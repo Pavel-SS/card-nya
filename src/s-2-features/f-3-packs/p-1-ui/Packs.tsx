@@ -59,7 +59,7 @@ export const Packs = () => {
 
     return (
         <div className={gnel.block__profile}>
-            <AddPackModal onClickModalWindow={addPackClose} open={addOpen} />
+            <AddPackModal onClickClose={addPackClose} open={addOpen} />
             <div className={style.btn_section}>
                 <Radio name={'radio'} options={typePack} value={whosePack} onChangeOption={onChangeTypePacks} />
                 <DoubleRangePacks />

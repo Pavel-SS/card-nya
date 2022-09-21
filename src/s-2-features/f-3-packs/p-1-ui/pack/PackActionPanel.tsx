@@ -47,19 +47,19 @@ export const PackActionPanel: React.FC<PackActionType> = React.memo(({ myPack, p
             <LearnPackModal 
                 name={pack.name} 
                 onClickLearnPack={learnPackOpen} 
-                onClickModalWindow={learnPackClose} 
+                onClickClose={learnPackClose} 
                 open={learnPack}
             />
             <EditPackModal 
                 id={pack._id} 
                 name={pack.name} 
-                onClickModalWindow={editPackClose} 
+                onClickClose={editPackClose} 
                 open={editPack}
             />
             <DelPackModal 
                 id={pack._id} 
                 name={pack.name} 
-                onClickModalWindow={delPackClose} 
+                onClickClose={delPackClose} 
                 open={delPack}
             />
             {pack.cardsCount > 0 && 

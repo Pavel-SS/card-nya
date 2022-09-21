@@ -4,12 +4,14 @@ import { Button } from "../../../s-0-common/c-1-ui/Buttons/Button";
 import { delCard } from "../../f-4-cards/c-2-bll/cardsThunk";
 import { Modal, ModalType } from "../Modal";
 
-export type DelCardModalType = ModalType & {
+export type DelCardModalType = {
+    onClickClose: () => void
+    open: boolean
     id: string
 }
 
 export const DelCardModal: React.FC<DelCardModalType> = React.memo(({
-    onClickModalWindow,
+    onClickClose,
     open,
     id,
 }) => {
@@ -17,14 +19,14 @@ export const DelCardModal: React.FC<DelCardModalType> = React.memo(({
     
     const onClickDelCard = useCallback(()=>{
         dispatch(delCard(id))
-        onClickModalWindow()
-    }, [dispatch, onClickModalWindow, id])
+        onClickClose()
+    }, [dispatch, onClickClose, id])
 
     return (
-        <Modal onClickModalWindow={onClickModalWindow} open={open}>
+        <Modal onClickModalWindow={onClickClose} open={open}>
             <p>Do you really want to remove card?</p>
             <div>
-                <Button onClick={onClickModalWindow}>Cancel</Button>
+                <Button onClick={onClickClose}>Cancel</Button>
                 <Button onClick={onClickDelCard}>Delete</Button>
             </div>
         </Modal>

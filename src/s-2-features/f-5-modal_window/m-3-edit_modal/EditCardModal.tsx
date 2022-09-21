@@ -3,16 +3,18 @@ import { useDispatch } from "react-redux"
 import { Button } from "../../../s-0-common/c-1-ui/Buttons/Button"
 import { InputText } from "../../../s-0-common/c-1-ui/InputText/InputText"
 import { updateCard } from "../../f-4-cards/c-2-bll/cardsThunk"
-import { Modal, ModalType } from "../Modal"
+import { Modal } from "../Modal"
 
-export type EditCardModalType = ModalType & {
+export type EditCardModalType =  {
+    onClickClose: () => void
+    open: boolean
     id: string
     question: string
     answer: string
 }
 
 export const EditCardModal: React.FC<EditCardModalType> = React.memo(({
-    onClickModalWindow,
+    onClickClose,
     open,
     id,
     question,
@@ -26,10 +28,10 @@ export const EditCardModal: React.FC<EditCardModalType> = React.memo(({
     const onClickEditCard = useCallback(()=>{
         dispatch(updateCard(id, createQuestion, createAnswer))
         onClickCleanState()
-    },[dispatch, onClickModalWindow, id, createQuestion, createAnswer])
+    },[dispatch, onClickClose, id, createQuestion, createAnswer])
 
     const onClickCleanState = () => {
-        onClickModalWindow()
+        onClickClose()
         setCreateQuestion(question)
         setCreateAnswer(answer)
     }

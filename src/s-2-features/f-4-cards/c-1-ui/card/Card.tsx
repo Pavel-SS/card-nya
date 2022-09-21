@@ -41,12 +41,12 @@ export const Card: React.FC<CardPropsType> = React.memo(({card})=>{
     return (
         <tr>
             <DelCardModal
-                onClickModalWindow={delCardClose}
+                onClickClose={delCardClose}
                 open = {delCard}
                 id={card._id}
             />
             <EditCardModal
-                onClickModalWindow={editCardClose}
+                onClickClose={editCardClose}
                 open={editCard}
                 id={card._id}
                 question={card.question}

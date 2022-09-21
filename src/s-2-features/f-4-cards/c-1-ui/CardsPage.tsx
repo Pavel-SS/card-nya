@@ -50,9 +50,9 @@ export const CardsPage = () => {
     return (
         <>  
             <AddCardModal 
-                onClickModalWindow = {cardAddClose} 
+                onClickClose = {cardAddClose} 
                 open = {addOpen}
-                id = {cardsPackID}
+                cardsPackID = {cardsPackID}
             />
             <div>
                 <Button onClick={returnPage}>back</Button>

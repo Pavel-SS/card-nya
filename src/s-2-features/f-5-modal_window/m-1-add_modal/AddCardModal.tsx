@@ -3,15 +3,17 @@ import { useDispatch } from "react-redux";
 import { Button } from "../../../s-0-common/c-1-ui/Buttons/Button";
 import { InputText } from "../../../s-0-common/c-1-ui/InputText/InputText";
 import { addCards } from "../../f-4-cards/c-2-bll/cardsThunk";
-import { Modal, ModalType } from "../Modal";
+import { Modal } from "../Modal";
 
-type AddCardModalType = ModalType & {
-    id: string
+type AddCardModalType = {
+    onClickClose: () => void
+    open: boolean
+    cardsPackID: string
 } 
 export const AddCardModal: React.FC<AddCardModalType> = React.memo(({
-    onClickModalWindow,
+    onClickClose,
     open,
-    id
+    cardsPackID
 })=>{
     
     const dispatch = useDispatch()
@@ -20,12 +22,12 @@ export const AddCardModal: React.FC<AddCardModalType> = React.memo(({
     const [answer, setAnswer] = useState<string>('')
 
     const onClickAddCard = useCallback(() => {
-        dispatch(addCards(id, question, answer))
+        dispatch(addCards(cardsPackID, question, answer))
         onClickCleanState()
-    }, [dispatch, onClickModalWindow, question, answer])
+    }, [dispatch, onClickClose, question, answer])
 
     const onClickCleanState = () => {
-        onClickModalWindow()
+        onClickClose()
         setQuestion('')
         setAnswer('')
     }

@@ -37,33 +37,31 @@ export const PacksTable = () => {
     }, [dispatch, packName, userID, packSort, max, min, packPageCount])
 
     return (
-        
-        <table className={s.table}>
-            <thead className={s.table__header}>
-                <PackTableHeader text={'name'} param={'name'}/>
-                <PackTableHeader text={'cards'} param={'cardsCount'}/>
-                <PackTableHeader text={'update'} param={'updated'}/>
-                <PackTableHeader text={'creator'} param={'user_name'}/>
-                <td className={s.table__th}>actions</td>
-            </thead>
-            <tbody className={s.table__body}>
-                <PackTableRow packs={packs}/>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colSpan = {1}  className={s.pagination}>
-                        <div>
-                             <Paginator
-                            page={packPage}
-                            pageCount = {packPageCount}
-                            totalElementCount={packCardsCount}
-                            changingNumberOfRenderedElements = {onChangePacksCount}
-                            changePage = {onChangePage}
-                            /> 
-                        </div>
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
+        <>
+            <table className={s.table}>
+                <thead >
+                    <tr className={s.table__header}>
+                         <PackTableHeader text={'name'} param={'name'} />
+                         <PackTableHeader text={'cards'} param={'cardsCount'} />
+                         <PackTableHeader text={'update'} param={'updated'} />
+                         <PackTableHeader text={'creator'} param={'user_name'} />
+                         <th className={s.table__th}>actions</th>
+                    </tr>
+                </thead>
+                <tbody className={s.table__body}>
+                    <PackTableRow packs={packs} />
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colSpan={1} className={s.pagination}>
+                            <div>
+                                <Paginator page={packPage} pageCount={packPageCount} totalElementCount={packCardsCount}
+                                    changingNumberOfRenderedElements={onChangePacksCount} changePage={onChangePage} />
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </>
     )
 }

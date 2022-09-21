@@ -18,3 +18,16 @@ export const learnCardsThunk = (cardsPack_id: string): GeneralThunkType => async
         dispatch(appAction.setAppLoading(false))
     }
 }
+
+export const rate = (grade: number, card_id: string): GeneralThunkType => async(dispatch) => {
+    dispatch(appAction.setAppLoading(true))
+    try {
+        const randomeGradeCard = await cardsAPI.rate({grade, card_id})
+        dispatch(appAction.setAppStatus('Card successfully rated'))
+        dispatch(learnActions.setGrade(card_id, randomeGradeCard))
+    } catch(e) {
+        networkErrorHandler(dispatch, e as Error)
+    } finally {
+        dispatch(appAction.setAppLoading(false))
+    }
+}

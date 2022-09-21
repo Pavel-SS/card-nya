@@ -12,9 +12,9 @@ export const cardsReducer = (state: InitialCardStateType = InitialCardState, act
         case 'cards/SET_CARDS_ID':
         case 'cards/SET_CARDS_PAGE_COUNT':
         case 'cards/SET_CURRENT_PAGE':
-        case 'CARDS/SET_ANSWER_SEARCH':
-        case 'CARDS/SET_QUESTION_SEARCH':
-        case 'CARDS/SET_SORT_PARAMETERS':
+        case 'cards/SET_ANSWER_SEARCH':
+        case 'cards/SET_QUESTION_SEARCH':
+        case 'cards/SET_SORT_PARAMETERS':
             return {...state, params:{...state.params, ...action.payload}}
         default:
             return state
