@@ -5,16 +5,22 @@ import { selectAppIsLoading, selectLearnRandomeCards } from "../../../s-1-main/m
 import { useAppSelector } from "../../../s-1-main/m-2-bll/store";
 import { learnActions } from "../../../s-1-main/m-2-bll/learn/learnAction";
 import { CardType } from "../../f-4-cards/c-3-api/cardsAPI";
-import { Modal, ModalType } from "../Modal";
+import { Modal } from "../Modal";
+import { Preloader } from "../../../s-0-common/c-1-ui/Preloader/Preloader";
 
-export type LearnPackModalType = ModalType & {
+import s from "../../../s-1-main/app/App.module.scss"
+import { AnswerModal } from "../m-6-answer-modal/AnswerModal";
+
+export type LearnPackModalType = {
     onClickLearnPack: () => void
+    onClickClose: () => void
+    open: boolean
     name: string
 }
 
 export const LearnPackModal: React.FC<LearnPackModalType> = React.memo(({
-    onClickModalWindow,
     onClickLearnPack,
+    onClickClose,
     open,
     name
 }) => {
@@ -25,29 +31,39 @@ export const LearnPackModal: React.FC<LearnPackModalType> = React.memo(({
     const randomCard = useAppSelector(selectLearnRandomeCards)
     const loading = useAppSelector(selectAppIsLoading)
 
-    const setAnswer = useCallback(()=>{
-        onClickModalWindow()
+    const setAnswerNoClose = useCallback(()=>{
+        onClickClose()
         setAnswerOpen(true)
-    }, [onClickModalWindow])
+    }, [onClickClose])
+
+    const setAnswerClose = useCallback(() => {
+        setAnswerOpen(false)
+    },[])
 
     const onClickLearnClose = useCallback(() => {
         dispatch(learnActions.setRandome({} as CardType))
         dispatch(learnActions.setCards([]))
-        onClickModalWindow()
-    }, [onClickModalWindow])
+        onClickClose()
+    }, [onClickClose])
 
     return (
         <>
-            <Modal onClickModalWindow={onClickModalWindow} open={open}>
+            <AnswerModal 
+                onClickLearnPack = {onClickLearnPack}
+                onClickClose= {setAnswerClose} 
+                open= {open} 
+                name= {name}
+            />
+            <Modal onClickModalWindow= {onClickLearnClose} open= {open}>
                 {
                     loading ? 
-                    <></> : 
+                    <div className={s.appProgress}><Preloader/></div> : 
                     <>
-                        <span>Learn</span>
-                        <span>Question</span>
+                        <span>Learn: {name}</span>
+                        <span>Question: {randomCard.question} </span>
                         <div>
                             <Button onClick={onClickLearnClose}>Cancel</Button>
-                            <Button onClick={setAnswer}>Show answer</Button>
+                            <Button onClick={setAnswerNoClose}>Show answer</Button>
                         </div>    
                     </>
                 }
