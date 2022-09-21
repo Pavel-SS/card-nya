@@ -72,7 +72,7 @@ export const Profile = () => {
                </div>
            </aside>
            <AddPackModal
-                onClickModalWindow={addPackClose}
+                onClickClose={addPackClose}
                 open = {adding}
            />
            <section className={style.profileTable}>

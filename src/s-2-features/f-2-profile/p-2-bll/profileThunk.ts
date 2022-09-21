@@ -3,19 +3,10 @@ import { profileActions } from './profileActions';
 import { GeneralThunkType } from "../../../s-1-main/m-2-bll/store";
 import { profileAPI } from '../p-3-api/profileAPI';
 import { networkErrorHandler } from '../../../utils/networkErrorHandler';
+import { appAction } from '../../../s-1-main/app/appAction';
 
-export const profileUpdateThunk = (name: string, avatar: string): GeneralThunkType => async dispatch=> {
-    dispatch(profileActions.setObtain(true))
-    try {
-        const response = await profileAPI.update(name, avatar)
-        dispatch(profileActions.setUserData(response.data.userUpdate))
-        dispatch(profileActions.setEdit(false))
-    } catch(e) {
-        networkErrorHandler(dispatch, e as Error)
-    } finally {
-        dispatch(profileActions.setObtain(false))
-    }
-}
+
+
 export const authPage = (): GeneralThunkType => async dispatch => {
     dispatch(profileActions.setObtain(true))
     try {
@@ -27,5 +18,19 @@ export const authPage = (): GeneralThunkType => async dispatch => {
     } finally {
         dispatch(profileActions.setObtain(false))
         dispatch(profileActions.setInitialize(true))
+    }
+}
+
+export const profileUpdateThunk = (name: string, avatar: string): GeneralThunkType => async dispatch => {
+    dispatch(profileActions.setObtain(true))
+    try {
+        const response = await profileAPI.update(name, avatar)
+        dispatch(appAction.setAppStatus('Profile edited'))
+        dispatch(profileActions.setUserData(response.data.userUpdate))
+        dispatch(profileActions.setEdit(false))
+    } catch(e) {
+        networkErrorHandler(dispatch, e as Error)
+    } finally {
+        dispatch(profileActions.setObtain(false))
     }
 }
