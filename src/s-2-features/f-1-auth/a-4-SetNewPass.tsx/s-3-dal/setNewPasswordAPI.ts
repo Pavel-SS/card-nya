@@ -10,7 +10,6 @@ export type SetNewPasswordDataType = {
 
 export const setNewPasswordAPI = {
     changePassword(data: Omit<SetNewPasswordDataType, 'confirmNewPassword'>){
-        return instance.post<any, AxiosResponse<ResponseType>, 
-        Omit<SetNewPasswordDataType, 'confirmNewPassword'>>('auth/set-new-password', data).then(res => res.data)
+        return instance.post<any, AxiosResponse<ResponseType>,Omit<SetNewPasswordDataType, 'confirmNewPassword'>>('auth/set-new-password', data).then(res => res.data)
     }
 }
