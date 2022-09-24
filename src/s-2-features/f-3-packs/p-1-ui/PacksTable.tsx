@@ -23,6 +23,7 @@ export const PacksTable = () => {
     const packCardsCount = useAppSelector(selectPackCardsCount)
     
     const dispatch = useDispatch()
+    
     const onChangePage = useCallback((page: number)=>{
         dispatch(packsActions.setCurrentPage(page))
         dispatch(getPacks())
@@ -55,8 +56,13 @@ export const PacksTable = () => {
                     <tr>
                         <td colSpan={1} className={s.pagination}>
                             <div>
-                                <Paginator page={packPage} pageCount={packPageCount} totalElementCount={packCardsCount}
-                                    changingNumberOfRenderedElements={onChangePacksCount} changePage={onChangePage} />
+                                <Paginator 
+                                    changingNumberOfRenderedElements={onChangePacksCount} 
+                                    changePage={onChangePage}
+                                    page={packPage} 
+                                    pageCount={packPageCount} 
+                                    totalElementCount={packCardsCount}
+                                     />
                             </div>
                         </td>
                     </tr>
