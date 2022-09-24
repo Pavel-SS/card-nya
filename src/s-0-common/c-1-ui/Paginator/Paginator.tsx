@@ -22,19 +22,21 @@ export const Paginator: React.FC<PaginatorPropsType> = React.memo(({
 
     const pages = []
     const pagesCount = Math.ceil(totalElementCount / pageCount)
-    console.log(totalElementCount)
+    console.log(pagesCount)
+    console.log(page)
+    console.log(pageCount)
     for(let i = 1; i<= pagesCount; i+=1){
         pages.push(i)
     }
 
     const renderPages = getPages(pages, page, pagesCount)
 
-   const onClickChangePage = (page: number) => {
+    const onClickChangePage = (page: number) => {
         changePage(page)
     }
 
     return(
-        !totalElementCount ?
+        totalElementCount ?
         <>
             <>
             <div>
