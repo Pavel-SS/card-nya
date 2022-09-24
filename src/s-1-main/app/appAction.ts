@@ -9,9 +9,9 @@ export const appAction = {
         type: 'app/SET_ERROR',
         payload:{error}
     } as const),
-    setAppLoading: (loading:boolean) => ({
+    setAppLoading: (isLoading:boolean) => ({
         type: 'app/SET_LOADING',
-        payload:{loading}
+        payload:{isLoading}
     } as const)
 }
 
