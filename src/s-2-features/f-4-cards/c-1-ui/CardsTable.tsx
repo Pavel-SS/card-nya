@@ -57,9 +57,9 @@ export const CardsTable = () => {
             </tbody>
             <tfoot>
                 <tr>
-                    <td colSpan={5} className={s.pagination}>
+                    <td colSpan={1} className={s.pagination}>
                         <Paginator changingNumberOfRenderedElements={onChangeCardsCount} changePage={onChangePage}
-                            totalElementCount={cardsTotalCount} page={cardsPage} pageCount={cardsPageCount} />
+                            totalElementCount={cardsTotalCount} pageCount={cardsPageCount} page={cardsPage}  />
                     </td>
                 </tr>
             </tfoot>

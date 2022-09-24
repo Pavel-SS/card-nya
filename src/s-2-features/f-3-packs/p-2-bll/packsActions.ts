@@ -8,9 +8,9 @@ export const packsActions = {
         type: 'packs/SET_PACKS',
         payload: {packs}
     } as const),
-    setUserPacks: (id: string) => ({
+    setUserPacks: (user_id: string) => ({
         type: 'packs/SET_USER_PACKS',
-        payload: {id}
+        payload: {user_id}
     } as const),
     setPacksMin: (min: number) => ({
         type: 'packs/SET_PACKS_MIN',
@@ -20,9 +20,9 @@ export const packsActions = {
         type: 'packs/SET_PACKS_MAX',
         payload: {max}
     } as const),
-    setCountCardsInPacks: (countCard: number) => ({
+    setCountCardsInPacks: (cardPacksTotalCount: number) => ({
         type: 'packs/SET_COUNT_CARD_IN_PACKS',
-        payload: {countCard}
+        payload: {cardPacksTotalCount}
     } as const),
     setCurrentPage: (page: number) => ({
         type: 'packs/SET_CURRENT_PAGE',
@@ -48,9 +48,9 @@ export const packsActions = {
         type: 'packs/SET_PAGE_COUNT',
         payload: {pageCount}
     } as const),
-    setPacksStatus: (statusPacks: GeneralOrMyPacks) => ({
+    setPacksStatus: (packsType: GeneralOrMyPacks) => ({
         type: 'packs/SET_PACKS_STATUS',
-        payload: {statusPacks}
+        payload: {packsType}
     } as const)
 }
 
