@@ -31,7 +31,7 @@ export const AddPackModal: React.FC<AddPackModalType> = React.memo(({onClickClos
     }
 
     return (
-        <Modal onClickModalWindow={onClickCleanState} open={open}>
+        <Modal onClickClose={onClickCleanState} open={open}>
             <InputText value={name} placeholder={'Enter name'} onChangeText={setName}/>
             <Checkbox checked={privatePack} onChecked={setPrivatePack}>
                 Make private

@@ -32,7 +32,7 @@ export const EditPackModal: React.FC<EditPackModalType> = React.memo(({
         setNamePack(name)
     }
     return (
-        <Modal onClickModalWindow={ onClickCleanState} open={open}>
+        <Modal onClickClose={onClickCleanState} open={open}>
             <div>Pack name</div>
             <InputText value ={namePack} 
                 placeholder={'Enter pack name'}

@@ -89,12 +89,12 @@ export const packsAPI = {
         return instance.get<any, AxiosResponse<PacksType>, PackParamsType>('cards/pack', {params}).then(res => res.data)
     },
     addPacks (cardPacks: Partial<AddCardType>){
-        return instance.post<any, AxiosResponse<AdditionalPackResponseType & Pick<PacksResponse, 'newCardsInPack'>>, Partial<AddCardType>>(`cards/pack`, cardPacks)
+         return instance.post<any, AxiosResponse<AdditionalPackResponseType &Pick<PacksResponse, 'newCardsInPack'>>, Partial<AddCardType>>('cards/pack', cardPacks)
     },
-    deletePack (_id: string) {
-        return instance.delete<any, AxiosResponse<AdditionalPackResponseType & Pick<PacksResponse, 'deleteCardsInPack'>>>(`cards/pack?id=${_id}`)
+    deletePack (id: string) {
+        return instance.delete<any, AxiosResponse<AdditionalPackResponseType & Pick<PacksResponse, 'deleteCardsInPack'>>>(`cards/pack?id=${id}`)
     },
     updatePack (cardsPack: UpdatePackType) {
-        return instance.put<any, AxiosResponse<AdditionalPackResponseType & Pick<PacksResponse, 'updateCardsInPack'>>, UpdatePackType>(`cards/pack`, cardsPack)
+        return instance.put<any, AxiosResponse<AdditionalPackResponseType & Pick<UpdatePackType, 'cards'>>, UpdatePackType>('cards/pack', cardsPack)
     }
 }

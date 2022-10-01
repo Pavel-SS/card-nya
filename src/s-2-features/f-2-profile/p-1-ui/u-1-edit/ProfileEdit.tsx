@@ -4,7 +4,7 @@ import {selectProfileUser, selectProfileObtain, selectProfileEdit} from "../../.
 import { useCallback, useState } from "react"
 import { profileActions } from "../../p-2-bll/profileActions"
 import { profileUpdateThunk } from "../../p-2-bll/profileThunk"
-import { Profile } from "../Profile"
+
 import profile_ava from "../../../../s-3-assets/img/profile_ava.png"
 import { InputText } from "../../../../s-0-common/c-1-ui/InputText/InputText"
 import { Button } from "../../../../s-0-common/c-1-ui/Buttons/Button"
@@ -12,6 +12,7 @@ import { Button } from "../../../../s-0-common/c-1-ui/Buttons/Button"
 import gnel from "../../../../s-1-main/app/style/gnel.module.scss";
 import text from "../../../../s-1-main/app/style/text.module.scss"
 import { Preloader } from "../../../../s-0-common/c-1-ui/Preloader/Preloader"
+import { Profile } from "../Profile"
 
 export const ProfileEdit = () => {
     

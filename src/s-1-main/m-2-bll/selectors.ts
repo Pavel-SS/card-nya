@@ -15,7 +15,7 @@ export const selectAppStatus = (state: AppRootStateType) => state.app.status
 export const selectAppError = (state: AppRootStateType) => state.app.error
 export const selectAppIsLoading = (state: AppRootStateType) => state.app.loading
 
-//profile
+// profile
 export const selectProfileUser = (state: AppRootStateType) => state.profile.user
 export const selectProfileUserID = (state: AppRootStateType) => state.profile.user._id
 export const selectProfileUserName = (state: AppRootStateType) => state.profile.user.name
@@ -23,7 +23,7 @@ export const selectProfileEdit = (state: AppRootStateType) => state.profile.edit
 export const selectProfileInitialize = (state: AppRootStateType) => state.profile.initialize
 export  const selectProfileObtain = (state: AppRootStateType) => state.profile.obtain 
 
-//forgot password 
+// forgot password 
 export const selectForgotPassSuccess = (state: AppRootStateType) => state.forgotPass.success
 export const selectForgotPassError = (state: AppRootStateType) => state.forgotPass.error
 export const selectForgotPassIsLoading = (state: AppRootStateType) => state.forgotPass.loading
@@ -33,7 +33,7 @@ export const selectNewPasswordSuccess = (state: AppRootStateType) => state.chang
 export const selectNewPasswordError = (state: AppRootStateType) => state.changePassword.error
 export const selectNewPasswordIsLoading = (state: AppRootStateType) => state.changePassword.loading
 
-//packs
+// packs
 export const selectPacks = (state: AppRootStateType) => state.packs.packs
 export const selectPackUserID = (state: AppRootStateType) => state.packs.params.user_id
 export const selectPackName = (state: AppRootStateType) => state.packs.params.packName

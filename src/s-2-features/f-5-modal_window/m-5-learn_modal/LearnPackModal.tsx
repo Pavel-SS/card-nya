@@ -54,7 +54,7 @@ export const LearnPackModal: React.FC<LearnPackModalType> = React.memo(({
                 open= {open} 
                 name= {name}
             />
-            <Modal onClickModalWindow= {onClickLearnClose} open= {open}>
+            <Modal onClickClose = {onClickLearnClose} open= {open}>
                 {
                     loading ? 
                     <div className={s.appProgress}><Preloader/></div> : 

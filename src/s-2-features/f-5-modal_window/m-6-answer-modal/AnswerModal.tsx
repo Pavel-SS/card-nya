@@ -72,7 +72,7 @@ export const AnswerModal: React.FC<AnswerModalType> = React.memo(({
 
 
     return (
-        <Modal onClickModalWindow={onClickLearnClose} open={open}>
+        <Modal onClickClose={onClickLearnClose} open={open}>
             {
                 loading ? 
                 <div className={s.appProgress}><Preloader/></div> : 

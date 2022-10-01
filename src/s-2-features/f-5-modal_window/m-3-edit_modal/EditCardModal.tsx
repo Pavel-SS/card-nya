@@ -36,7 +36,7 @@ export const EditCardModal: React.FC<EditCardModalType> = React.memo(({
         setCreateAnswer(answer)
     }
     return (
-        <Modal onClickModalWindow={onClickCleanState} open={open}>
+        <Modal onClickClose={onClickCleanState} open={open}>
             <p>Card info</p>
             <InputText 
                 value={createQuestion} 
