@@ -22,7 +22,7 @@ export const AddPackModal: React.FC<AddPackModalType> = React.memo(({onClickClos
     const onClickAddPack = useCallback(()=>{
         dispatch(addPacks(name, privatePack))
         onClickCleanState()
-    }, [dispatch, onClickClose(), name, privatePack])
+    }, [dispatch, onClickClose, name, privatePack])
 
     const onClickCleanState = () => {
         onClickClose()

@@ -43,14 +43,16 @@ export const CardsTable = () => {
 
     return (
         <table className={s.table}>
-            <thead className={s.table__header}>
+            <thead>
+                <tr className={s.table__header}>
                     <CardsTableHeader text={'question'} param={'question'}/>
                     <CardsTableHeader text={'answer'} param={'answer'}/>
                     <CardsTableHeader text={'updated'} param={'updated'}/>
                     <CardsTableHeader text={'grade'} param={'grade'}/>
                     {
                         userID === packUserID && <td className={s.table__th}> actions </td>
-                    }    
+                    } 
+                </tr>
             </thead>
             <tbody className={s.table__body}>
                 <CardsTableRow cards={cards}/>
