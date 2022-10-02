@@ -81,7 +81,6 @@ export const Profile = () => {
                     value={packName} 
                     onRechenge={onChangeRequest}
                     placeholder={"Enter pack's title"}
-                   
                />
                <Button
                     onClick={addPackOpen}

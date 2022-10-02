@@ -50,8 +50,12 @@ export const ProfileEdit = () => {
                 <div className={gnel.block__avatar}>
                     <img src={profile_ava} alt="avatar" />
                 </div>
-                <InputText value={name} onChangeText={changeName} />
-                <InputText value={user.email} />
+                <form>
+                    <label htmlFor="userName">user name</label>
+                    <InputText value={name} id='userName' onChangeText={changeName} />
+                    <label htmlFor="email">email</label>
+                    <InputText value={user.email} id='userName'/>
+                </form>
                 <div className={gnel.btns}>
                     <Button onClick={profileNav} className={`${gnel.btn} ${text.fs14_400}`}>
                         Cancel

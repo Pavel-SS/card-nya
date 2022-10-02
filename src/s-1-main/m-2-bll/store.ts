@@ -12,7 +12,7 @@ import { ProfileActionsType } from './../../s-2-features/f-2-profile/p-2-bll/pro
 import { applyMiddleware, combineReducers} from "redux";
 import { legacy_createStore as createStore} from 'redux'
 import { TypedUseSelectorHook, useSelector } from "react-redux";
-import thunkMiddleware,{ ThunkAction } from 'redux-thunk';
+import thunk,{ ThunkAction } from 'redux-thunk';
 import { ExtraArgumentNya } from './thunk';
 import  {registerReducer}  from "../../s-2-features/f-1-auth/a-1-register/r-2-bll/registerReducer";
 import { RegisterActionsType } from '../../s-2-features/f-1-auth/a-1-register/r-2-bll/RegisterActions';
@@ -38,7 +38,7 @@ const rootReducer = combineReducers({
 
 
 
-export const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
+export const store = createStore(rootReducer, applyMiddleware(thunk));
 export type AppRootStateType = ReturnType<typeof store.getState>;
 export type ActionsType = 
                         ProfileActionsType |

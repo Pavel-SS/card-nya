@@ -11,7 +11,7 @@ export const learnCardsThunk = (cardsPack_id: string): GeneralThunkType => async
         const pageCount = getState().packs.maxCardsCount
         const response = await cardsAPI.getCards({cardsPack_id, pageCount})
         dispatch(learnActions.setCards(response.cards))
-        dispatch(learnActions.setRandome(getRandomeCards(response.cards)))
+        dispatch(learnActions.setRandomCard(getRandomeCards(response.cards)))
     } catch (e) {
         networkErrorHandler(dispatch, e as Error)
     } finally {

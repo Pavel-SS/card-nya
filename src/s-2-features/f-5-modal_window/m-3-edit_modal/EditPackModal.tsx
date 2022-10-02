@@ -23,7 +23,7 @@ export const EditPackModal: React.FC<EditPackModalType> = React.memo(({
     const [namePack, setNamePack] = useState<string>(name)
     
     const onClickEditPack = useCallback(()=>{
-        dispatch(updatePacks(id,namePack,name))
+        dispatch(updatePacks(id, namePack, name))
         onClickCleanState()
     },[dispatch, onClickClose, id, namePack, name])
     

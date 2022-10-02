@@ -1,16 +1,13 @@
 import React from "react";
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
-// import MenuItem from '@mui/material/MenuItem';
-import { NavLink, NavLinkProps } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { PATH } from "./routes/path";
-
+import { useDispatch } from "react-redux";
 import s from "./headerMenu.module.scss"
+import { logoutThunk } from "../../../s-2-features/f-1-auth/a-2-login/l-2-bll/loginThunk";
 
-// навигация по ссылкам
-// const NavLinkPage: React.FC<NavLinkProps> = React.memo(({...props})=>{
-//     return <NavLink {...props}/>
-// }) 
+
 
 
 export const HeaderMenu = () => {
@@ -22,6 +19,12 @@ export const HeaderMenu = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const dispatch = useDispatch();
+
+  const exit = () => {
+    dispatch(logoutThunk())
+  }
+
 
   return (
     <nav>
@@ -44,13 +47,10 @@ export const HeaderMenu = () => {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <NavLink to={PATH.LOGIN} className={({isActive}) => isActive ? s.active:s.inactive}>Login</NavLink>
-        <NavLink to={PATH.REGISTER} className={({isActive}) => isActive ? s.active: s.inactive}>Registration</NavLink>
-        <NavLink to={PATH.FORGOT} className={({isActive}) => isActive ? s.active: s.inactive}> Forgot Password</NavLink>
         <NavLink to={PATH.SET_NEW_PASS} className={({isActive}) => isActive ? s.active: s.inactive}> Confirm new password</NavLink>
         <NavLink to={PATH.PROFILE} className={({isActive}) => isActive ? s.active: s.inactive}> Profile</NavLink>
         <NavLink to={PATH.PACKS} className={({isActive}) => isActive ? s.active: s.inactive}> Pack List</NavLink>
-        <NavLink to={PATH.CARDS} className={({isActive}) => isActive ? s.active: s.inactive}> Cards</NavLink>
+        <span onClick={exit} style={{cursor: 'pointer'}}>Exit</span>
       </Menu>
 
     </nav>

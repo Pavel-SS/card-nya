@@ -51,7 +51,7 @@ export const InitPackState = {
         max: 103,
         sortPacks: '0updated',
         page: 1,
-        pageCount: 10,
+        pageCount: 5,
         user_id: '',
     } as PackParamsType,
     cardPacksTotalCount: 0,
@@ -92,7 +92,7 @@ export type InitialCardStateType = typeof InitialCardState
 //learn
 export const learnInitialState = {
     cards: [] as CardType[],
-    randomeCard: {} as CardType
+    randomCard: {} as CardType
 }
 export type LearnInitialStateType = typeof learnInitialState
 //

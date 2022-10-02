@@ -61,4 +61,4 @@ export const selectCardsTotalCount = (state: AppRootStateType) => state.cards.ca
 
 //Learn
 export const selectLearnCards = (state: AppRootStateType) => state.learn.cards
-export const selectLearnRandomeCards = (state: AppRootStateType) => state.learn.randomeCard
+export const selectRandomCards = (state: AppRootStateType) => state.learn.randomCard

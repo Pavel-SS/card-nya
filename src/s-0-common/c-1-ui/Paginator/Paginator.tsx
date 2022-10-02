@@ -10,7 +10,7 @@ export type PaginatorPropsType = {
     pageCount: number
 }
 
-const elemInPage = [ 10, 20, 30];
+const elemInPage = [5, 10, 20, 30];
 
 export const Paginator: React.FC<PaginatorPropsType> = React.memo(({
     changingNumberOfRenderedElements,
@@ -22,9 +22,6 @@ export const Paginator: React.FC<PaginatorPropsType> = React.memo(({
 
     const pages = []
     const pagesCount = Math.ceil(totalElementCount / pageCount)
-    console.log(pagesCount)
-    console.log(page)
-    console.log(pageCount)
     for(let i = 1; i<= pagesCount; i+=1){
         pages.push(i)
     }

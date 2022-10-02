@@ -33,8 +33,12 @@ export const Login = () => {
     }, [dispatch])
 
     const clickLogin = useCallback(()=>{
+        console.log(rememberMe)
+
         dispatch(loginThunk({email,password, rememberMe}))
     },[dispatch, email, password, rememberMe])
+
+
 
     if (loginLogged){
         return <Navigate to={PATH.PROFILE}/>
