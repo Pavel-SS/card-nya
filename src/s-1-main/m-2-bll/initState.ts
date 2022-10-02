@@ -30,7 +30,7 @@ export type InitLoginStateType = typeof InitState
 // profile
 export const InitProfileState = {
     user: {} as UserType,
-    edit: false,
+    editMode: false,
     obtain: false,
     initialize: false,
 }

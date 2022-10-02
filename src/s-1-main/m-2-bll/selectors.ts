@@ -19,7 +19,7 @@ export const selectAppIsLoading = (state: AppRootStateType) => state.app.loading
 export const selectProfileUser = (state: AppRootStateType) => state.profile.user
 export const selectProfileUserID = (state: AppRootStateType) => state.profile.user._id
 export const selectProfileUserName = (state: AppRootStateType) => state.profile.user.name
-export const selectProfileEdit = (state: AppRootStateType) => state.profile.edit
+export const selectProfileEdit = (state: AppRootStateType) => state.profile.editMode
 export const selectProfileInitialize = (state: AppRootStateType) => state.profile.initialize
 export  const selectProfileObtain = (state: AppRootStateType) => state.profile.obtain 
 
