@@ -5,7 +5,7 @@ import { appAction } from '../../app/appAction';
 import { GeneralThunkType } from '../store';
 import { networkErrorHandler } from '../../../utils/networkErrorHandler';
 
-export const learnCardsThunk = (cardsPack_id: string): GeneralThunkType => async(dispatch, getState) => {
+export const learnCardsThunk = (cardsPack_id: string): GeneralThunkType => async (dispatch, getState) => {
     dispatch(appAction.setAppLoading(true))
     try {
         const pageCount = getState().packs.maxCardsCount

@@ -17,7 +17,7 @@ import s from "../../../s-1-main/app/App.module.scss"
 type AnswerModalType = {
     onClickLearnPack: () => void
     onClickClose: () => void
-    open: boolean
+    isOpen: boolean
     name: string
 }
 
@@ -32,7 +32,7 @@ const gradesArr = [
 export const AnswerModal: React.FC<AnswerModalType> = React.memo(({
     onClickLearnPack,
     onClickClose,
-    open,
+    isOpen,
     name
 }) => {
 
@@ -47,8 +47,8 @@ export const AnswerModal: React.FC<AnswerModalType> = React.memo(({
     
     const nextQuestion = useCallback(()=>{
         dispatch(learnActions.setRandomCard(getRandomeCards(cards)))
+        onClickClose() 
         onClickLearnPack()
-        onClickClose()
         setRating(false)
         setGrade(GRADES.ONE)
     },[dispatch, onClickLearnPack, onClickClose, cards])
@@ -72,24 +72,27 @@ export const AnswerModal: React.FC<AnswerModalType> = React.memo(({
 
 
     return (
-        <Modal onClickClose={onClickLearnClose} open={open}>
+        <Modal onClickClose={onClickLearnClose} open={isOpen}>
             {
                 loading ? 
                 <div className={s.appProgress}><Preloader/></div> : 
                 <>
-                    <div>
+                    <div className={s.answer__block_txt}>
                         <p>Learn: {name}</p>
                         <p>Question: {randomCard.question}</p>
                         <p>Answer: {randomCard.answer}</p>
                     </div>
                     <div>
                         Rate youself: 
-                        <Radio 
-                            name={'radio'}
-                            value={grade}
-                            options={gradesArr}
-                            onChangeOption={onChangeOption}
-                        />
+                        <div className={s.rate}>
+                            <Radio 
+                                name={'radio'} 
+                                value={grade} 
+                                options={gradesArr} 
+                                onChangeOption={onChangeOption}
+                            />
+                        </div>
+                        
                     </div>
                     <div>
                         <Button onClick={onClickLearnClose}> Cancel</Button>

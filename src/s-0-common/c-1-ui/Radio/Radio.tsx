@@ -37,9 +37,5 @@ export const Radio: React.FC<RadioPropsType> = React.memo(({
         )
     }): []
 
-    return(
-        <div>
-         {mappedOptions}
-        </div>
-    )
+    return <>{mappedOptions}</>
 })

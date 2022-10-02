@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Button } from "../../../s-0-common/c-1-ui/Buttons/Button";
-import { selectAppIsLoading, selectLearnCards, selectRandomCards } from "../../../s-1-main/m-2-bll/selectors";
+import { selectAppIsLoading, selectRandomCards } from "../../../s-1-main/m-2-bll/selectors";
 import { useAppSelector } from "../../../s-1-main/m-2-bll/store";
 import { learnActions } from "../../../s-1-main/m-2-bll/learn/learnAction";
 import { CardType } from "../../f-4-cards/c-3-api/cardsAPI";
@@ -51,7 +51,7 @@ export const LearnPackModal: React.FC<LearnPackModalType> = React.memo(({
             <AnswerModal 
                 onClickLearnPack = {onClickLearnPack}
                 onClickClose= {setAnswerClose} 
-                open= {answerOpen} 
+                isOpen= {answerOpen} 
                 name= {name}
             />
             <Modal onClickClose = {onClickLearnClose} open= {open}>
@@ -60,7 +60,7 @@ export const LearnPackModal: React.FC<LearnPackModalType> = React.memo(({
                     <div className={s.appProgress}><Preloader/></div> : 
                     <>
                         <span>Learn: {name}</span>
-                        <span>Question: '{randomCard.question}' </span>
+                        <span>Question: {randomCard.question}</span>
                         <div>
                             <Button onClick={onClickLearnClose}>Cancel</Button>
                             <Button onClick={setAnswerNoClose}>Show answer</Button>
