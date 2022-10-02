@@ -9,7 +9,7 @@ export const getPacks = (): GeneralThunkType => async (dispatch, getState) => {
     dispatch(appAction.setAppLoading(true))
     try {
         const data = await packsAPI.getPacks(getParam)
-        dispatch(packsActions.setCountCardsInPacks(data.cardsCount))
+        dispatch(packsActions.setCountCardsInPacks(data.cardPacksTotalCount))
         dispatch(packsActions.setPacks(data.cardPacks))
     } catch(e){
         networkErrorHandler(dispatch, e as Error)
@@ -47,7 +47,7 @@ export const delPacks = (id:string, name: string): GeneralThunkType => async (di
 }
 
 export const updatePacks = (_id: string, name: string, oldName: string): GeneralThunkType => async (dispatch) => {
-    const cardsPack: UpdatePackType = {cards: {_id, name}}
+    const cardsPack: UpdatePackType = {cardsPack: {_id, name}}
     dispatch(appAction.setAppLoading(true))
     try {
         await packsAPI.updatePack(cardsPack)

@@ -18,8 +18,8 @@ import { store } from './s-1-main/m-2-bll/store';
 //       </HashRouter>
 //     </Provider>
 //   </React.StrictMode>,
- 
 // );
+
 ReactDOM.render(
   <React.StrictMode>
      <Provider store={store}>
@@ -30,6 +30,19 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+
+// const root = createRoot(document.getElementById('root') as HTMLElement);
+
+// root.render(
+//   <StrictMode>
+//     <Provider store={store}>
+//       <HashRouter>
+//         <App />
+//       </HashRouter>
+//     </Provider>
+//   </StrictMode>,
+// );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Button } from "../../../s-0-common/c-1-ui/Buttons/Button";
-import { selectAppIsLoading, selectLearnRandomeCards } from "../../../s-1-main/m-2-bll/selectors";
+import { selectAppIsLoading, selectLearnCards, selectRandomCards } from "../../../s-1-main/m-2-bll/selectors";
 import { useAppSelector } from "../../../s-1-main/m-2-bll/store";
 import { learnActions } from "../../../s-1-main/m-2-bll/learn/learnAction";
 import { CardType } from "../../f-4-cards/c-3-api/cardsAPI";
@@ -28,7 +28,7 @@ export const LearnPackModal: React.FC<LearnPackModalType> = React.memo(({
 
     const [answerOpen, setAnswerOpen] = useState<boolean>(false)
 
-    const randomCard = useAppSelector(selectLearnRandomeCards)
+    const randomCard = useAppSelector(selectRandomCards)
     const loading = useAppSelector(selectAppIsLoading)
 
     const setAnswerNoClose = useCallback(()=>{
@@ -41,7 +41,7 @@ export const LearnPackModal: React.FC<LearnPackModalType> = React.memo(({
     },[])
 
     const onClickLearnClose = useCallback(() => {
-        dispatch(learnActions.setRandome({} as CardType))
+        dispatch(learnActions.setRandomCard({} as CardType))
         dispatch(learnActions.setCards([]))
         onClickClose()
     }, [onClickClose])
@@ -51,16 +51,16 @@ export const LearnPackModal: React.FC<LearnPackModalType> = React.memo(({
             <AnswerModal 
                 onClickLearnPack = {onClickLearnPack}
                 onClickClose= {setAnswerClose} 
-                open= {open} 
+                open= {answerOpen} 
                 name= {name}
             />
-            <Modal onClickModalWindow= {onClickLearnClose} open= {open}>
+            <Modal onClickClose = {onClickLearnClose} open= {open}>
                 {
                     loading ? 
                     <div className={s.appProgress}><Preloader/></div> : 
                     <>
                         <span>Learn: {name}</span>
-                        <span>Question: {randomCard.question} </span>
+                        <span>Question: '{randomCard.question}' </span>
                         <div>
                             <Button onClick={onClickLearnClose}>Cancel</Button>
                             <Button onClick={setAnswerNoClose}>Show answer</Button>

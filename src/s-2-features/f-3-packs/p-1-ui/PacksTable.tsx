@@ -54,16 +54,14 @@ export const PacksTable = () => {
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colSpan={1} className={s.pagination}>
-                            <div>
+                        <td colSpan={5} className={s.pagination}>
                                 <Paginator 
                                     changingNumberOfRenderedElements={onChangePacksCount} 
                                     changePage={onChangePage}
-                                    page={packPage} 
-                                    pageCount={packPageCount} 
                                     totalElementCount={packCardsCount}
-                                     />
-                            </div>
+                                    pageCount={packPageCount} 
+                                    page={packPage} 
+                                />
                         </td>
                     </tr>
                 </tfoot>

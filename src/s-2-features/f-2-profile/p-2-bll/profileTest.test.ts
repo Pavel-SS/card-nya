@@ -20,7 +20,7 @@ describe('profile reducer test', () => {
                 verified: false,
                 rememberMe: false
             },
-            edit: false,
+            editMode: false,
             obtain: false,
             initialize: false
         }
@@ -48,8 +48,8 @@ describe('profile reducer test', () => {
         const endSate = profileReducer(initState, profileActions.setEdit(true))
         const endSate2 = profileReducer(initState, profileActions.setEdit(false))
 
-        expect(endSate.edit).toBe(true)
-        expect(endSate2.edit).toBe(false)
+        expect(endSate.editMode).toBe(true)
+        expect(endSate2.editMode).toBe(false)
     })
     test ('is obtein to show preloader or not', () => {
         const endSate = profileReducer(initState, profileActions.setObtain(true))

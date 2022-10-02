@@ -25,9 +25,9 @@ export type PackType = {
 
 export type PacksType = {
     cardPacks: PackType[]
-    cardsCount: number
-    minCardsInPack: number
-    maxCardsInPack: number
+    cardPacksTotalCount: number
+    minCardsCount: number
+    maxCardsCount: number
     page: number
     pageCount: number
     token: string
@@ -35,9 +35,9 @@ export type PacksType = {
 }
 
 export type PacksResponse = {
-    newCardsInPack: PackType
-    deleteCardsInPack: PackType
-    updateCardsInPack: PackType
+    newCardsPack: PackType
+    deleteCardsPack: PackType
+    updateCardsPack: PackType
 }
 
 
@@ -50,7 +50,7 @@ export type AddCardType = {
 }
 
 export type UpdatePackType = {
-    cards: {
+    cardsPack: {
         _id: string
         user_id?: string
         user_name?: string
@@ -89,12 +89,12 @@ export const packsAPI = {
         return instance.get<any, AxiosResponse<PacksType>, PackParamsType>('cards/pack', {params}).then(res => res.data)
     },
     addPacks (cardPacks: Partial<AddCardType>){
-        return instance.post<any, AxiosResponse<AdditionalPackResponseType & Pick<PacksResponse, 'newCardsInPack'>>, Partial<AddCardType>>(`cards/pack`, cardPacks)
+        return instance.post<any, AxiosResponse<AdditionalPackResponseType & Pick<PacksResponse, 'newCardsPack'>>, Partial<AddCardType>>(`cards/pack`, cardPacks)
     },
     deletePack (_id: string) {
-        return instance.delete<any, AxiosResponse<AdditionalPackResponseType & Pick<PacksResponse, 'deleteCardsInPack'>>>(`cards/pack?id=${_id}`)
+        return instance.delete<any, AxiosResponse<AdditionalPackResponseType & Pick<PacksResponse, 'deleteCardsPack'>>>(`cards/pack?id=${_id}`)
     },
     updatePack (cardsPack: UpdatePackType) {
-        return instance.put<any, AxiosResponse<AdditionalPackResponseType & Pick<PacksResponse, 'updateCardsInPack'>>, UpdatePackType>(`cards/pack`, cardsPack)
+        return instance.put<any, AxiosResponse<AdditionalPackResponseType & Pick<PacksResponse, 'updateCardsPack'>>, UpdatePackType>(`cards/pack`, cardsPack)
     }
 }

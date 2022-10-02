@@ -89,8 +89,6 @@ export type RateResponseType = {
 export const cardsAPI = {
     getCards(params: Partial<CardsParamsType>) {
         return instance.get<any, AxiosResponse<CardsResponseType>, Partial<CardsParamsType>>('cards/card', {params}).then(res => res.data)
-        // return instance.get<any, AxiosResponse<CardsResponseType>, Partial<CardsParamsType>>('cards/card?cardsPack_id=6319d798192788cf9c317c36').then(res => res.data)
-
     },
     addCards (card: AddCardType) {
         return instance.post<any, AxiosResponse<AdditionalCardResponse & Pick<CardResponses, 'newCard'>>, AddCardType>('cards/card', card)
@@ -101,7 +99,7 @@ export const cardsAPI = {
     updateCard(card: UpdateCardType) {
         return instance.put<any, AxiosResponse<AdditionalCardResponse & Pick<CardResponses, 'updatedCard'>>, UpdateCardType>(`cards/card`, card)
     },
-    rate(payload:RateType) {
+    rate(payload: RateType) {
         return instance.put<any, AxiosResponse<RateResponseType>,RateType>(`cards/grade`, payload).then(res => res.data.updatedGrade.grade)
     }
 }

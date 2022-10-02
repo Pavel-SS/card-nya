@@ -33,7 +33,7 @@ export const AddCardModal: React.FC<AddCardModalType> = React.memo(({
     }
 
     return (
-        <Modal onClickModalWindow={onClickCleanState} open={open}>
+        <Modal onClickClose={onClickCleanState} open={open}>
             <div>Add new card</div>
             <InputText
                 value = {question}

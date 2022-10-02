@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react"
 import { useDispatch } from "react-redux"
 import { Button } from "../../../s-0-common/c-1-ui/Buttons/Button"
 import { Radio } from "../../../s-0-common/c-1-ui/Radio/Radio"
-import { selectAppIsLoading, selectLearnCards, selectLearnRandomeCards } from "../../../s-1-main/m-2-bll/selectors"
+import { selectAppIsLoading, selectLearnCards, selectRandomCards } from "../../../s-1-main/m-2-bll/selectors"
 import { useAppSelector } from "../../../s-1-main/m-2-bll/store"
 import { getRandomeCards } from "../../../utils/getRandom"
 import { Grades, GRADES, GradeType } from "../../../utils/grade/grade"
@@ -43,10 +43,10 @@ export const AnswerModal: React.FC<AnswerModalType> = React.memo(({
 
     const loading = useAppSelector(selectAppIsLoading)
     const cards = useAppSelector(selectLearnCards)
-    const randomCard = useAppSelector(selectLearnRandomeCards)
+    const randomCard = useAppSelector(selectRandomCards)
     
     const nextQuestion = useCallback(()=>{
-        dispatch(learnActions.setRandome(getRandomeCards(cards)))
+        dispatch(learnActions.setRandomCard(getRandomeCards(cards)))
         onClickLearnPack()
         onClickClose()
         setRating(false)
@@ -65,14 +65,14 @@ export const AnswerModal: React.FC<AnswerModalType> = React.memo(({
 
     const onClickLearnClose = useCallback(()=>{
         onClickClose()
-        dispatch(learnActions.setRandome({} as CardType))
+        dispatch(learnActions.setRandomCard({} as CardType))
         dispatch(learnActions.setCards([]))
         setRating(false)
     }, [dispatch, onClickClose])
 
 
     return (
-        <Modal onClickModalWindow={onClickLearnClose} open={open}>
+        <Modal onClickClose={onClickLearnClose} open={open}>
             {
                 loading ? 
                 <div className={s.appProgress}><Preloader/></div> : 

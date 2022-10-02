@@ -21,14 +21,15 @@ export const Packs = () => {
     
     const dispatch = useDispatch()
 
-    const [addOpen, setAddOpen] = useState<boolean>(false)
+    
    
     const userID = useAppSelector(selectProfileUserID)
     const packName = useAppSelector(selectPackName)
     const packTypeSort = useAppSelector(selectPackTypeSort)
     
     packTypeSort === 'All' ? dispatch(packsActions.setUserPacks('')) : dispatch(packsActions.setUserPacks(userID))
-
+    
+    const [addOpen, setAddOpen] = useState<boolean>(false)
     const [whosePack, setWhosePack] = useState(typePack[0])
 
     const onChangeTypePacks = useCallback((myOrAll: string) => {

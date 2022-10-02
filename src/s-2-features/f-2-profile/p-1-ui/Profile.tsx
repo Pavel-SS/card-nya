@@ -24,7 +24,7 @@ export const Profile = () => {
 
     const userNameProfile = useAppSelector(selectProfileUserName)
     const profileEdit = useAppSelector(selectProfileEdit)
-    const userID = useAppSelector(selectProfileUserID)
+    const user_id = useAppSelector(selectProfileUserID)
     const packName = useAppSelector(selectPackName)
 
     const [adding, setAdding] = useState<boolean>(false)
@@ -51,7 +51,7 @@ export const Profile = () => {
     }
 
     if (location.pathname === PATH.PROFILE){
-        dispatch(packsActions.setUserPacks(userID))
+        dispatch(packsActions.setUserPacks(user_id))
         dispatch(packsActions.setPacksStatus('All'))
     }
 
@@ -81,7 +81,6 @@ export const Profile = () => {
                     value={packName} 
                     onRechenge={onChangeRequest}
                     placeholder={"Enter pack's title"}
-                   
                />
                <Button
                     onClick={addPackOpen}

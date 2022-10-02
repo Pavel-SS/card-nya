@@ -8,7 +8,7 @@ export const getCards = (): GeneralThunkType => async(dispatch,  getState) => {
     const getParam = getState().cards.params
     dispatch(appAction.setAppLoading(true))
     try {
-        const data = await  cardsAPI.getCards(getParam)
+        const data = await cardsAPI.getCards(getParam)
         dispatch(cardsActions.setCardsCount(data.cardsTotalCount))
         dispatch(cardsActions.setCards(data.cards))
     } catch(e) {
