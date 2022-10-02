@@ -40,7 +40,7 @@ export const PackActionPanel: React.FC<PackActionType> = React.memo(({ myPack, p
     const startLearn = useCallback(() => {
         setLearnPack(true)
         dispatch(learnCardsThunk(pack._id))
-    }, [dispatch, pack._id])
+    }, [])
 
     return (
         <>
