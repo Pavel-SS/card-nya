@@ -2,7 +2,7 @@
   "name": "card-nya",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://pavel-ss.github.io/card-nya/",
+  "homepage": "https://pavel-ss.github.io/card-nya",
   "dependencies": {
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
