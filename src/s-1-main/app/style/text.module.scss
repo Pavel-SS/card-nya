@@ -1,0 +1,42 @@
+@import "../../../s-1-main/app/style/gnel.module.scss";
+
+.fs12{
+    &_700{
+        font-weight: 700;
+        font-size: 10px;
+        line-height: 14px;
+    }
+}
+.fs14{
+    &_400{
+        font-weight: 400;
+        font-size: 0.7778rem;
+        line-height: 0.8889rem;
+    }
+    &__inform_400 {
+        font-weight: 400;
+        font-size: 0.7778rem;
+        line-height: 0.8889rem;
+        color: $primari-light;
+    }
+}
+.fs18{
+    &_400{
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.2rem;
+    }
+    &_700{
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 1.2rem;
+    }
+}
+
+.fs27{
+    &_700{
+        font-weight: 700;
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+    }
+}

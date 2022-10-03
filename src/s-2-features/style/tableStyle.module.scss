@@ -1,0 +1,105 @@
+@import "../../s-1-main/app/style/gnel.module.scss";
+
+.table {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 35px 0.5fr 0.25fr;
+
+    &__header,
+    &__body_tr {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1.5fr 1fr;
+    }
+
+    &__header {
+        max-height: 32px;
+    }
+
+    &__body {
+        &_tr {
+            background-color: $primari-light;
+            opacity: 0.6;
+
+            td {
+                text-align: center;
+                border: 2px solid $primary;
+                border-top: 0px;
+                border-right: 0px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    }
+
+    &__th {
+        display: flex;
+        padding: 5px 2px;
+        width: 100%;
+        background-color: $primari-light;
+        justify-content: center;
+        border: 2px solid $primary;
+        border-right: 0px;
+
+        &:first-child {
+            border-top-left-radius: 10px;
+        }
+
+        &:nth-last-child(-n+1) {
+            border-top-right-radius: 10px;
+        }
+
+        span {
+            margin-right: 5px;
+        }
+    }
+}
+
+.table {
+
+    &__body_tr td,
+    &__th {
+        &:nth-last-child(-n+1) {
+            border-right: 2px solid $primary;
+        }
+    }
+}
+
+.arrow {
+    &__btns {
+        border: solid 0px;
+        position: relative;
+
+    }
+
+    position: absolute;
+    cursor: pointer;
+    color: #fff;
+    max-height: 88.5%;
+    // border-bottom-right-radius: 5px;
+    // border-top-right-radius: 5px;
+    background-color: $primari-light;
+
+    &:hover {
+        background-color: $primary;
+    }
+
+    &_up {
+        transform: rotate(270deg) translateX(5px) translateY(25%);
+    }
+
+    &_down {
+        transform: rotate(90deg) translateX(5px) translateY(-25%);
+    }
+}
+
+.pagination {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.modal_window {
+    position: absolute;
+    background-color: aquamarine;
+}
