@@ -9,7 +9,9 @@ import { AddCardModal } from "../../f-5-modal_window/m-1-add_modal/AddCardModal"
 import { cardsActions } from "../c-2-bll/cardsActions";
 import { CardsTable } from "./CardsTable";
 
-import s from './card.module.scss'
+import s from "./card.module.scss";
+import gnel from "../../../s-1-main/app/style/gnel.module.scss"
+import text from "../../../s-1-main/app/style/text.module.scss"
 
 export const CardsPage = () => {
     const dispatch = useDispatch(),
@@ -71,7 +73,7 @@ export const CardsPage = () => {
                     placeholder ={'Enter answer'}
                 />
                 {
-                    profileUserID === packUserID && <Button onClick={cardAddOpen}>Add card</Button>
+                    profileUserID === packUserID && <Button className={`${gnel.btn} ${text.fs14_400} ${s.card_btn}`} onClick={cardAddOpen}>Add card</Button>
                 }
             </div>
             <CardsTable/>
