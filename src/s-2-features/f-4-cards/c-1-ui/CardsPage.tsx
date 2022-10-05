@@ -59,7 +59,7 @@ export const CardsPage = () => {
             />
             <div>
                 <Button className={s.arrow} onClick={returnPage}>&larr;</Button>
-                <div className={s.pack_name}>
+                <div className={`${s.pack_name} ${gnel.item_title} ${text.fs27_700}` }>
                     {packName}
                 </div>
                 <SearchPanel 

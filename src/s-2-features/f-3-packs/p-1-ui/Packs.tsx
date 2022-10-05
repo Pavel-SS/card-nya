@@ -60,7 +60,7 @@ export const Packs = () => {
     return (
         <div className={gnel.block__pack}>
             <AddPackModal onClickClose={addPackClose} open={addOpen} />
-                <p>PACK</p>
+                <p className={`${gnel.item_title} ${text.fs27_700}`}>PACK</p>
                 <div className={gnel.block__pack_search}>
                     <SearchPanel value={packName} onRechenge={onChangeRequest} placeholder={'Search'} /> 
                     <Button onClick={addPackOpen} className={`${gnel.btn} ${text.fs14_400} ${s.profileTable_btn}`}>

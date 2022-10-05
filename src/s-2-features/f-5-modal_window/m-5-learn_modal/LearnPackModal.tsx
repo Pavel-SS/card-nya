@@ -47,7 +47,7 @@ export const LearnPackModal: React.FC<LearnPackModalType> = React.memo(({
     }, [onClickClose])
 
     return (
-        <>
+        <div>
             <AnswerModal 
                 onClickLearnPack = {onClickLearnPack}
                 onClickClose= {setAnswerClose} 
@@ -68,6 +68,6 @@ export const LearnPackModal: React.FC<LearnPackModalType> = React.memo(({
                     </>
                 }
             </Modal>
-        </>
+        </div>
     )
 })
