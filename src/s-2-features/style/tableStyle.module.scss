@@ -76,13 +76,13 @@
     &__btns {
         border: solid 0px;
         position: relative;
-
+        width: 20px;
     }
 
     position: absolute;
     cursor: pointer;
     color: #fff;
-    max-height: 88.5%;
+    max-height: 19px;
     background-color: $primari-light;
 
     &:hover {
