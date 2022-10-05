@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/card-nya/static/css/main.59692844.css",
-    "main.js": "/card-nya/static/js/main.c805cbf5.js",
+    "main.css": "/card-nya/static/css/main.1758139e.css",
+    "main.js": "/card-nya/static/js/main.08f48ea2.js",
     "static/js/787.0ceeff22.chunk.js": "/card-nya/static/js/787.0ceeff22.chunk.js",
     "static/media/profile_ava.png": "/card-nya/static/media/profile_ava.cbb09203d52063b35d90.png",
     "static/media/hidden_eye_hide_icon_132911.svg": "/card-nya/static/media/hidden_eye_hide_icon_132911.ab765c2251c71804055a.svg",
     "static/media/eye_visible_unhide_icon_132914.svg": "/card-nya/static/media/eye_visible_unhide_icon_132914.1c52853dc55d1921e226.svg",
     "static/media/angle_double_down_icon_125391.svg": "/card-nya/static/media/angle_double_down_icon_125391.e54f14d5afd6deac3d15.svg",
     "index.html": "/card-nya/index.html",
-    "main.59692844.css.map": "/card-nya/static/css/main.59692844.css.map",
-    "main.c805cbf5.js.map": "/card-nya/static/js/main.c805cbf5.js.map",
+    "main.1758139e.css.map": "/card-nya/static/css/main.1758139e.css.map",
+    "main.08f48ea2.js.map": "/card-nya/static/js/main.08f48ea2.js.map",
     "787.0ceeff22.chunk.js.map": "/card-nya/static/js/787.0ceeff22.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.59692844.css",
-    "static/js/main.c805cbf5.js"
+    "static/css/main.1758139e.css",
+    "static/js/main.08f48ea2.js"
   ]
 }
