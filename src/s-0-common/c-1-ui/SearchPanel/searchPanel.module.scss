@@ -2,12 +2,16 @@
 
 .search{
     position: relative;
-    max-width: 450px;
+    min-width: 200px;
+    width: 35vw;
+    margin-right: 25px;
+    margin-bottom: 10px;
     div:nth-of-type(1){
         width: 100%;
     }
     &__panel{
         background-color: $primari-light;
+        
     }
     &__btn{
         position: absolute;

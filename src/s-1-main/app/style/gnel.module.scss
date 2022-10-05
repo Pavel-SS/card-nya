@@ -56,7 +56,7 @@ $primari-light: #aaa9f7;
 }
 .block__profile{
     display: flex;
-    width: 1400px;
+    width: 91.1vw;
     justify-content:center;
     aside{
         display: flex;
@@ -72,6 +72,29 @@ $primari-light: #aaa9f7;
         width: 70%;
     }
 }
+.block__pack, .paginator{
+    display: flex;
+    justify-content: space-between;
+    width: 63vw;
+}
+.block__pack{
+    flex-direction: column;
+    &_search{
+        display: grid;
+        grid-template-columns: 3.5fr .5fr;
+        justify-content: end;
+        justify-items: end;
+    }
+}
+.pagintator{
+    flex-basis: 20vw;
+    &_show{
+        div{
+            display: inline-block;
+        }
+    }
+}
+
 .link{
     text-decoration: none;
     color:$secondary;
@@ -134,4 +157,9 @@ $primari-light: #aaa9f7;
     &_edit{
         min-height: 400px;
     }
+}
+
+.range{
+    width: 80%;
+    margin-left: 20px;
 }

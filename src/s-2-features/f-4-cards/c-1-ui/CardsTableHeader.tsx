@@ -32,7 +32,7 @@ export const CardsTableHeader = ({text,param}: CardsTableHeaderType) => {
     return (
         <td className={s.table__th}>
             <span onClick={() => changeNameSort(param)}>{text}</span>
-            <div>
+            <div className={s.arrow__btns}>
                 <div className={`${s.arrow} ${s.arrow_up}`}  onClick={() => changeSortPosition('0')}>&#62;</div>
                 <div className={`${s.arrow} ${s.arrow_down}`}  onClick={() => changeSortPosition('1')}>&#62;</div>
             </div>

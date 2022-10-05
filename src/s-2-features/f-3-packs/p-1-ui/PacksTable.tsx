@@ -9,7 +9,7 @@ import { PackTableHeader } from "./PackTableHeader"
 import { PackTableRow } from "./PackTableRow"
 
 import s from "./../../style/tableStyle.module.scss"
-
+import gnel from "../../../s-1-main/app/style/gnel.module.scss"
 export const PacksTable = () => {
     
     const packs = useAppSelector(selectPacks)
@@ -54,7 +54,7 @@ export const PacksTable = () => {
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colSpan={5} className={s.pagination}>
+                        <td colSpan={5} className={`${s.pagination} ${gnel.paginator}`}>
                                 <Paginator 
                                     changingNumberOfRenderedElements={onChangePacksCount} 
                                     changePage={onChangePage}

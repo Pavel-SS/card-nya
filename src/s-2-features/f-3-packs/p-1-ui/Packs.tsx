@@ -13,7 +13,7 @@ import { PacksTable } from './PacksTable'
 
 import gnel from "../../../s-1-main/app/style/gnel.module.scss"
 import text from "../../../s-1-main/app/style/text.module.scss"
-import style from './pack.module.scss'
+import s from './pack.module.scss'
 
 const typePack: GeneralOrMyPacks[] = ['All','My']
 
@@ -59,21 +59,20 @@ export const Packs = () => {
 
 
     return (
-        <div className={gnel.block__profile}>
+        <div className={gnel.block__pack}>
             <AddPackModal onClickClose={addPackClose} open={addOpen} />
-            <div className={style.btn_section}>
-                <Radio name={'radio'} options={typePack} value={whosePack} onChangeOption={onChangeTypePacks} />
-                <DoubleRangePacks />
-            </div>
-            <div>
                 <p>PACK</p>
-                <SearchPanel value={packName} onRechenge={onChangeRequest} placeholder={'Search'} />
-                <Button onClick={addPackOpen} className={`${gnel.btn} ${text.fs14_400} ${style.profileTable_btn}`}>
-                    Add pack
-                </Button>
+                <div className={gnel.block__pack_search}>
+                    <SearchPanel value={packName} onRechenge={onChangeRequest} placeholder={'Search'} /> 
+                    <Button onClick={addPackOpen} className={`${gnel.btn} ${text.fs14_400} ${s.profileTable_btn}`}>
+                        Add pack
+                    </Button> 
+                </div>
+                <div className={s.btn_section}>
+                    <Radio name={'radio'} options={typePack} value={whosePack} onChangeOption={onChangeTypePacks} />
+                    <DoubleRangePacks/>
+                </div>
                 <PacksTable/>
-            </div>
-
         </div>
     )
 }

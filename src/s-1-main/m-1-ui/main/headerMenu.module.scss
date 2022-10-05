@@ -5,18 +5,14 @@
         left: 50% !important;
         transform: translateX(-50%) !important;
         box-shadow: none;
-        
+        width: 100vw;
         ul{
             display: flex;
             justify-content: center;
             gap: 20px;
-            background: var(--light-grey);
         }
     }
 }
 .active{
     color:brown;
-}
-.inactive{
-    color: green;
 }

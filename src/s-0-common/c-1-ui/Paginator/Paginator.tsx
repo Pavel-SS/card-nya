@@ -2,6 +2,8 @@ import React from "react"
 import { getPages } from "../../../utils/getPages"
 import { Select } from "../Select/Select"
 
+import gnel from '../../../s-1-main/app/style/gnel.module.scss'
+
 export type PaginatorPropsType = {
     changingNumberOfRenderedElements: (elem: number) => void
     changePage: (page: number) => void
@@ -55,8 +57,6 @@ export const Paginator: React.FC<PaginatorPropsType> = React.memo(({
                         </button> 
                     ))
                 }
-            </div>
-            <div>
                 {
                     page < pages.length - 2 && pagesCount > 5 && (
                         <>
@@ -71,7 +71,7 @@ export const Paginator: React.FC<PaginatorPropsType> = React.memo(({
                     )
                 }
             </div>
-            <div>
+            <div className={gnel.pagintator_show}>
                 <span>Show</span>
                 <Select 
                     options = {elemInPage}

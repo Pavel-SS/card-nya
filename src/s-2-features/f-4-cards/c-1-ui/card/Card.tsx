@@ -8,6 +8,8 @@ import { DelCardModal } from "../../../f-5-modal_window/m-2-del_modal/DelCardMod
 import { EditCardModal } from "../../../f-5-modal_window/m-3-edit_modal/EditCardModal"
 import { CardType } from "../../c-3-api/cardsAPI"
 
+import s from "./../../../style/tableStyle.module.scss";
+
 export type CardPropsType = {
     card: CardType
 }
@@ -39,7 +41,7 @@ export const Card: React.FC<CardPropsType> = React.memo(({card})=>{
     const dataUpdate = getDataUpdate(card.updated)
 
     return (
-        <tr>
+        <tr className={s.table__body_card_tr}>
             <DelCardModal
                 onClickClose={delCardClose}
                 open = {delCard}

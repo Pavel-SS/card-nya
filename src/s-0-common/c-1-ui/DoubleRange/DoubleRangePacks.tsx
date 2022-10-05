@@ -5,6 +5,8 @@ import { useAppSelector } from "../../../s-1-main/m-2-bll/store";
 import { packsActions } from "../../../s-2-features/f-3-packs/p-2-bll/packsActions";
 import { DoubleRange } from "./DoubleRange";
 
+import gnel from '../../../s-1-main/app/style/gnel.module.scss'
+
 export const DoubleRangePacks = () => {
     const minCardsInPack = useAppSelector(selectPackMinCardsCount),
           maxCardsInPack = useAppSelector(selectPackMaxCardsCount);
@@ -28,13 +30,13 @@ export const DoubleRangePacks = () => {
            setTimeId(id) 
     }, [dispatch, timeId])
     return (
-        <>
+        <div className={gnel.range}>
             <DoubleRange
                 value={[minAmount,maxAmount]}
                 onChangeRange={changeAmount} 
                 min = {minCardsInPack}
                 max = {maxCardsInPack}   
             />
-        </>
+        </div>
     )
 }
