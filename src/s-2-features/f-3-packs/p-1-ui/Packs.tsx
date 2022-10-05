@@ -57,7 +57,6 @@ export const Packs = () => {
         setAddOpen(true)
     }, [])
 
-
     return (
         <div className={gnel.block__pack}>
             <AddPackModal onClickClose={addPackClose} open={addOpen} />
