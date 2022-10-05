@@ -2,7 +2,14 @@ import { useCallback, useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { useParams } from "react-router-dom"
 import { Paginator } from "../../../s-0-common/c-1-ui/Paginator/Paginator"
-import { selectCardAnswer, selectCardQuestion, selectCards, selectCardsPage, selectCardsPageCount, selectCardsSort, selectCardsTotalCount, selectProfileUserID } from "../../../s-1-main/m-2-bll/selectors"
+import { selectCardAnswer, 
+    selectCardQuestion, 
+    selectCards, 
+    selectCardsPage, 
+    selectCardsPageCount, 
+    selectCardsSort, 
+    selectCardsTotalCount, 
+    selectProfileUserID } from "../../../s-1-main/m-2-bll/selectors"
 import { useAppSelector } from "../../../s-1-main/m-2-bll/store"
 import { cardsActions } from "../c-2-bll/cardsActions"
 import { getCards } from "../c-2-bll/cardsThunk"
