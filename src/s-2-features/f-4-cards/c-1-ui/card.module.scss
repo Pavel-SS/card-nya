@@ -17,3 +17,9 @@
 .search{
     margin-bottom: 20px;
 }
+.card {
+    &_btn{
+        display: block;
+        margin: 0 auto 5px auto;
+    }
+}

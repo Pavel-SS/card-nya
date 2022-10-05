@@ -17,7 +17,7 @@
     }
     &__header_card,
     &__body_card_tr{
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1.5fr 1fr 1fr;
     }
     &__header {
         max-height: 32px;
