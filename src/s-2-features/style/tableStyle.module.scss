@@ -6,20 +6,27 @@
     grid-auto-rows: 35px 0.5fr 0.25fr;
 
     &__header,
-    &__body_tr {
+    &__body_tr,
+    &__header_card,
+    &__body_card_tr{
         display: grid;
+    }
+    &__header,
+    &__body_tr {
         grid-template-columns: 1fr 1fr 1fr 1.5fr 1fr;
     }
-
+    &__header_card,
+    &__body_card_tr{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
     &__header {
         max-height: 32px;
     }
 
     &__body {
-        &_tr {
+        &_tr, &_card_tr {
             background-color: $primari-light;
             opacity: 0.6;
-
             td {
                 text-align: center;
                 border: 2px solid $primary;
@@ -58,7 +65,7 @@
 .table {
 
     &__body_tr td,
-    &__th {
+    &__th, &__body_card_tr td {
         &:nth-last-child(-n+1) {
             border-right: 2px solid $primary;
         }
@@ -76,8 +83,6 @@
     cursor: pointer;
     color: #fff;
     max-height: 88.5%;
-    // border-bottom-right-radius: 5px;
-    // border-top-right-radius: 5px;
     background-color: $primari-light;
 
     &:hover {

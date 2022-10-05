@@ -1,0 +1,19 @@
+@import "../../../s-1-main/app/style/gnel.module.scss";
+.arrow{
+    border: none;
+    margin-bottom: 15px;
+    color: $primari-light;
+    background: none;
+    cursor: pointer;
+    &:active{
+        color: $primary;
+    }
+}
+.pack_name{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.search{
+    margin-bottom: 20px;
+}

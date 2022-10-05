@@ -10,6 +10,7 @@ import { CardsTableHeader } from "./CardsTableHeader"
 import { CardsTableRow } from "./CardsTableRow"
 
 import s from "./../../style/tableStyle.module.scss"
+import gnel from "../../../s-1-main/app/style/gnel.module.scss"
 
 export const CardsTable = () => {
     const dispatch = useDispatch()
@@ -44,7 +45,7 @@ export const CardsTable = () => {
     return (
         <table className={s.table}>
             <thead>
-                <tr className={s.table__header}>
+                <tr className={s.table__header_card}>
                     <CardsTableHeader text={'question'} param={'question'}/>
                     <CardsTableHeader text={'answer'} param={'answer'}/>
                     <CardsTableHeader text={'updated'} param={'updated'}/>
@@ -59,7 +60,7 @@ export const CardsTable = () => {
             </tbody>
             <tfoot>
                 <tr>
-                    <td colSpan={1} className={s.pagination}>
+                    <td colSpan={1} className={`${s.pagination} ${gnel.paginator}`}>
                         <Paginator changingNumberOfRenderedElements={onChangeCardsCount} changePage={onChangePage}
                             totalElementCount={cardsTotalCount} pageCount={cardsPageCount} page={cardsPage}  />
                     </td>

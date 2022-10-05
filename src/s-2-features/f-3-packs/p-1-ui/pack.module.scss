@@ -23,5 +23,19 @@
 }
 
 .btn_section{
-    min-width: 200px
+    display: flex;
+    min-width: 200px;
+    width: 40vw;
+    justify-content: start;
+    margin: 15px 0;
+    label{
+        padding-top: 5px;
+        flex-basis: 50px;
+        span{
+            margin-left: 5px;
+        }
+    }
+    span{
+        max-width: 15vw;
+    }
 }

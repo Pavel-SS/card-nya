@@ -9,6 +9,7 @@ import { AddCardModal } from "../../f-5-modal_window/m-1-add_modal/AddCardModal"
 import { cardsActions } from "../c-2-bll/cardsActions";
 import { CardsTable } from "./CardsTable";
 
+import s from './card.module.scss'
 
 export const CardsPage = () => {
     const dispatch = useDispatch(),
@@ -55,14 +56,14 @@ export const CardsPage = () => {
                 cardsPackID = {cardsPackID}
             />
             <div>
-                <Button onClick={returnPage}>back</Button>
-                <div>
+                <Button className={s.arrow} onClick={returnPage}>&larr;</Button>
+                <div className={s.pack_name}>
                     {packName}
                 </div>
                 <SearchPanel 
                     onRechenge={onChangeQuestion}
                     value={question}
-                    placeholder ={'Enter a question'}
+                    placeholder ={'Enter a question'} 
                 />
                 <SearchPanel 
                     onRechenge={onChangeAnswer}
